@@ -65,30 +65,7 @@ while x < 100 do
      end
     end 
 end)
-local UIS = game:GetService("UserInputService")
-local bounceAll = false
 
-
-UIS.InputBegan:Connect(function(input, gameProcessedEvent)
-    if gameProcessedEvent then return end
-            local char = game.Players.LocalPlayer.Character
-           if input.KeyCode == Enum.KeyCode.Z then
-                local x = 0
-
-while x < 100 do
-    print (x)
-    x = x + 1
-    wait(0.1)
-          for i  , v in pairs(workspace:GetDescendants()) do 
-                if v.Name == "Left Leg" then
-                   firetouchinterest(char.Head,v, 0)
-                   wait()
-                   firetouchinterest(char.Head,v, 1) 
-        end
-      end
-     end
-    end 
-end)
     
      MainSection:NewToggle("Auto Ball Mag", "Auto Mags Ball", function()
 getgenv().Automag = Value;
