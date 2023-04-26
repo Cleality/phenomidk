@@ -117,23 +117,21 @@ end)
     local Teleportation = Window:NewTab("Teleportation")
     local TPSection = Teleportation:NewSection("Teleportation")
 
-    TPSection:NewButton("RimTp1", "Tps you to a certain rim", function()
+    TPSection:NewButton("Your Rim", "Tps you to a certain rim", function()
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-16.9935493, 42.9078331, 143.324341, -1, 0, 0, 0, 1, 0, 0, 0, -1) 
     end)
 
-    TPSection:NewButton("RimTp2", "Tps you to a certain rim", function()
+    TPSection:NewButton("Oppenents Rim", "Tps you to a certain rim", function()
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-16.9944324, 42.6078377, -46.1025467, 1, 0, 0, 0, 1, 0, 0, 0, 1)
     end)
 
-    TPSection:NewButton("BallSpawn1", "Tps you to a Ball Spawner", function()
+    TPSection:NewButton("Your Ball Spawn", "Tps you to a Ball Spawner", function()
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-16.9139996, 27.8899994, -32.2940369, -1.1920929e-07, -0, -1.00000012, 0, 1, -0, 1.00000012, 0, -1.1920929e-07)
     end)
 
-    TPSection:NewButton("BallSpawn2", "Tps you to a Ball Spawner", function()
+    TPSection:NewButton("Oppenents Ball Spawn", "Tps you to a Ball Spawner", function()
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-17.0290585, 27.8799992, 128.626984, -1.1920929e-07, 0, 1.00000012, 0, 1, 0, -1.00000012, 0, -1.1920929e-07)
     end)
-    
-    
 
     -- Credits
 
