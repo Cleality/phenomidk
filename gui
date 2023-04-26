@@ -1,10 +1,11 @@
 game.StarterGui:SetCore("SendNotification", {
-	Title = "Phenom";
+	Title = "PhenomWare By Clea And Vet";
 	Text = "Script Successfully Loaded";
+	Button = "Thanks Clea";
 	Duration = 5;
 })
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-    local Window = Library.CreateLib("Phenom", "GrapeTheme")
+    local Window = Library.CreateLib("PhenomWare", "GrapeTheme")
  
     -- MAIN
     local Main = Window:NewTab("Main")
@@ -13,7 +14,19 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
     MainSection:NewButton("Loom's Aimbot", "Gives you Aimbot", function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Loompic/Phenom-Aimbot/main/Bot"))()
     end)
-
+    
+     MainSection:NewButton("TBot (X)", "Just press x when  green", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/carolesdaughter/Roblox-Phenom-Silent-Aims/main/TBot.lua"))()
+    end)
+    
+     MainSection:NewButton("NormalSIlent (X)", "Just press x when  green", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/carolesdaughter/Roblox-Phenom-Silent-Aims/main/NormalAimbot.lua))()
+    end)
+    
+    MainSection:NewButton("BounceBot (X)", "Just press x when  green", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/carolesdaughter/Roblox-Phenom-Silent-Aims/main/BounceBot.lua))()
+    end)
+    
     MainSection:NewButton("Ball Mag (Press R)", "Gives you Ball Mag", function()
         local UIS = game:GetService('UserInputService')
         local plr = game.Players.LocalPlayer
@@ -29,8 +42,6 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
     end)
     
      MainSection:NewToggle("Auto Ball Mag", "Auto Mags Ball", function()
-     local Torso = game.Players.LocalPlayer.Character.Torso
-
 getgenv().Automag = Value;
 
 while wait() do
@@ -63,6 +74,18 @@ end
     end)
 
     end)
+    
+PlayerSection:NewButton("Trail/Basketball For Someting", "Prob Something", function()    
+local Player = game:GetService("Players").LocalPlayer
+local Character = Player.Character
+
+Character.ChildAdded:Connect(function(Child)
+    if Child.Name == ("Basketball") then
+          Character:FindFirstChild("Basketball").Ball.SecondaryTrail.Enabled = true
+          Character:FindFirstChild("Basketball").Ball.TertiaryTrail.Enabled = true
+          
+    end
+end)
 
     -- Teleportation
     local Teleportation = Window:NewTab("Teleportation")
@@ -91,9 +114,11 @@ end
     local Credits = Window:NewTab("Credits")
     local CreditsSection = Credits:NewSection("Credits")
 
-    CreditsSection:NewLabel("Gui Maker: xHeptc")
-    CreditsSection:NewLabel("Scripter: Jay")
+    CreditsSection:NewLabel("Gui Maker:Clea And Vet")
+    CreditsSection:NewLabel("Scripting Assistant: Clea")
+    CreditsSection:NewLabel("Scripter:Vet")
     CreditsSection:NewLabel("Aimbot Maker: Loompic")
+    CreditsSection:NewLabel("Silent Aim Maker: m_gnet")
 
 
 
