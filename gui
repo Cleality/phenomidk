@@ -27,7 +27,26 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
         end
         end)
     end)
+    
+     MainSection:NewButton("Auto Ball Mag", "Auto Mags Ball", function()
+     local Torso = game.Players.LocalPlayer.Character.Torso
 
+getgenv().Automag = Value;
+
+while wait() do
+if getgenv().Automag == true then
+for i, v in pairs(Workspace:GetDescendants()) do
+    if v.Name == "rim" then
+        firetouchinterest(Torso, v.Parent,0)
+        wait()
+        firetouchinterest(Torso, v.Parent,1)
+
+    end
+end
+end
+
+end
+    end)
 
     -- PLAYER
     local Player = Window:NewTab("Player")
