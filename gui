@@ -15,10 +15,34 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Loompic/Phenom-Aimbot/main/Bot"))()
     end)
     
+     MainSection:NewButton("Loom's Aimbot", "Gives you Aimbot", function()
+        
+    
      MainSection:NewButton("TBot (X)", "Just press x when  green", function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/carolesdaughter/Roblox-Phenom-Silent-Aims/main/TBot.lua"))()
     end)
-    
+    _G.brah = false
+_G.keybind = "Z"
+game.Players.LocalPlayer:GetMouse().KeyDown:connect(
+function(key)
+if key:lower() == _G.keybind and _G.brah == false then
+_G.brah = true
+for i, v in pairs(game.Players:GetPlayers()) do
+if v.Name ~= game.Players.LocalPlayer.Character.Name and (v.Character.Torso.CFrame.p - game.Players.LocalPlayer.Character.Torso.CFrame.p).Magnitude < 20 and v.Character.Basketball then
+while _G.brah == true do
+if v.Character.Torso.Velocity.magnitude > 0.2 then
+game.Players.LocalPlayer.Character.Humanoid:MoveTo(v.Character.Torso.CFrame.p + v.Character.Torso.Velocity.unit * 7)
+else
+game.Players.LocalPlayer.Character.Humanoid:MoveTo(v.Character.Torso.CFrame.p)
+end
+wait()
+end
+end
+end
+elseif key:lower() == _G.keybind and _G.brah == true then
+_G.brah = false
+end
+end
      MainSection:NewButton("NormalSIlent (X)", "Just press x when  green", function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/carolesdaughter/Roblox-Phenom-Silent-Aims/main/NormalAimbot.lua"))()
     end)
