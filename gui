@@ -34,12 +34,20 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
         loadstring(game:HttpGet("loadstring(game:HttpGet("https://raw.githubusercontent.com/Cleality/phenomidk/main/bounceall",true))()
     end)
     
-    MainSection:NewButton("Bounce All (Z)", "Just press x when  green", function()
+    MainSection:NewButton("Bounce All (Z)", "press z when u have ball", function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Cleality/phenomidk/main/autoguard",true))()
     end)
     
-    MainSection:NewButton("Bounce All (Z)", "Just press x when  green", function()
+    MainSection:NewButton("The hoopz cool trail thing?", "might change ball color idk", function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Cleality/phenomidk/main/Idk",true))()
+    end)
+    
+    MainSection:NewButton("Infinite Yield", "110+ Commands!", function()
+        loadstring(game:HttpGet(('https://pastebin.com/raw/tzTXmYf2'),true))()
+    end)
+    
+    MainSection:NewButton("Mobile Keyboard", "mobile version of pc keyboard!", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
     end)
     
     MainSection:NewButton("Ball Mag (Press R)", "Gives you Ball Mag", function()
