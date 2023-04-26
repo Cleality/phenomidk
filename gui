@@ -42,7 +42,7 @@ end
 elseif key:lower() == _G.keybind and _G.brah == true then
 _G.brah = false
 end
-end
+end)
      MainSection:NewButton("NormalSIlent (X)", "Just press x when  green", function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/carolesdaughter/Roblox-Phenom-Silent-Aims/main/NormalAimbot.lua"))()
     end)
