@@ -45,7 +45,7 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Cleality/phenomidk/main/bounceall",true))()
     end)
 
-MainSection:NewToggle("Auto Ball Mag", "Auto Mags Ball", function()
+  MainSection:NewToggle("Auto Ball Mag", "Auto Mags Ball", function()
 getgenv().Automag = Value;
 
 while wait() do
