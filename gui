@@ -15,10 +15,6 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Loompic/Phenom-Aimbot/main/Bot"))()
     end)
     
-     MainSection:NewButton("Loom's Aimbot", "Gives you Aimbot", function()
-     loadstring(game:HttpGet("https://raw.githubusercontent.com/Cleality/phenomidk/main/autoguard",true))()
-    end)
-    
      MainSection:NewButton("TBot (X)", "Just press x when  green", function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/carolesdaughter/Roblox-Phenom-Silent-Aims/main/TBot.lua"))()
     end)
@@ -68,25 +64,6 @@ while x < 100 do
      end
     end 
 end)
-
-    
-     MainSection:NewToggle("Auto Ball Mag", "Auto Mags Ball", function()
-getgenv().Automag = Value;
-
-while wait() do
-if getgenv().Automag == true then
-for i, v in pairs(Workspace:GetDescendants()) do
-    if v.Name == "rim" then
-        firetouchinterest(Torso, v.Parent,0)
-        wait()
-        firetouchinterest(Torso, v.Parent,1)
-
-    end
-end
-end
-
-end
-    end)
 
 
     -- PLAYER
