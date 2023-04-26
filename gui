@@ -1,11 +1,10 @@
 game.StarterGui:SetCore("SendNotification", {
-	Title = "PhenomWare By Clea And Vet";
+	Title = "Phenom";
 	Text = "Script Successfully Loaded";
-	Button = "Thanks Clea";
 	Duration = 5;
 })
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-    local Window = Library.CreateLib("PhenomWare", "GrapeTheme")
+    local Window = Library.CreateLib("Phenom", "GrapeTheme")
  
     -- MAIN
     local Main = Window:NewTab("Main")
@@ -15,15 +14,32 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Loompic/Phenom-Aimbot/main/Bot"))()
     end)
     
-     MainSection:NewButton("TBot (X)", "Just press x when  green", function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/carolesdaughter/Roblox-Phenom-Silent-Aims/main/TBot.lua"))()
-    end)
-     MainSection:NewButton("NormalSIlent (X)", "Just press x when  green", function()
+    MainSection:NewButton("NormalSIlent (X)", "Just press x when  green", function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/carolesdaughter/Roblox-Phenom-Silent-Aims/main/NormalAimbot.lua"))()
     end)
     
     MainSection:NewButton("BounceBot (X)", "Just press x when  green", function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/carolesdaughter/Roblox-Phenom-Silent-Aims/main/BounceBot.lua"))()
+    end)
+    
+     MainSection:NewButton("NoJump (X)", "Just press x when  green", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/carolesdaughter/Roblox-Phenom-Silent-Aims/main/NoJumpBot.lua"))()
+    end)
+    
+    MainSection:NewButton("TBot (X)", "Just press x when  green", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/carolesdaughter/Roblox-Phenom-Silent-Aims/main/TBot.lua"))()
+    end)
+    
+    MainSection:NewButton("Bounce All (Z)", "Just press x when  green", function()
+        loadstring(game:HttpGet("loadstring(game:HttpGet("https://raw.githubusercontent.com/Cleality/phenomidk/main/bounceall",true))()
+    end)
+    
+    MainSection:NewButton("Bounce All (Z)", "Just press x when  green", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Cleality/phenomidk/main/autoguard",true))()
+    end)
+    
+    MainSection:NewButton("Bounce All (Z)", "Just press x when  green", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Cleality/phenomidk/main/Idk",true))()
     end)
     
     MainSection:NewButton("Ball Mag (Press R)", "Gives you Ball Mag", function()
@@ -39,31 +55,6 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
         end
         end)
     end)
-    MainSection:NewToggle("Jump All (Z)", "Get ball first", function()
-    local UIS = game:GetService("UserInputService")
-local bounceAll = false
-
-
-UIS.InputBegan:Connect(function(input, gameProcessedEvent)
-    if gameProcessedEvent then return end
-            local char = game.Players.LocalPlayer.Character
-           if input.KeyCode == Enum.KeyCode.Z then
-                local x = 0
-
-while x < 100 do
-    print (x)
-    x = x + 1
-    wait(0.1)
-          for i  , v in pairs(workspace:GetDescendants()) do 
-                if v.Name == "Left Leg" then
-                   firetouchinterest(char.Head,v, 0)
-                   wait()
-                   firetouchinterest(char.Head,v, 1) 
-        end
-      end
-     end
-    end 
-end)
 
 
     -- PLAYER
@@ -81,19 +72,6 @@ end)
     end)
 
     end)
-    
-PlayerSection:NewButton("Trail/Basketball For Someting", "Prob Something", function()    
-local Player = game:GetService("Players").LocalPlayer
-local Character = Player.Character
-
-Character.ChildAdded:Connect(function(Child)
-    if Child.Name == ("Basketball") then
-          Character:FindFirstChild("Basketball").Ball.SecondaryTrail.Enabled = true
-          Character:FindFirstChild("Basketball").Ball.TertiaryTrail.Enabled = true
-          
-    end
-end)
-
 
     -- Teleportation
     local Teleportation = Window:NewTab("Teleportation")
@@ -122,11 +100,9 @@ end)
     local Credits = Window:NewTab("Credits")
     local CreditsSection = Credits:NewSection("Credits")
 
-    CreditsSection:NewLabel("Gui Maker:Clea And Vet")
-    CreditsSection:NewLabel("Scripting Assistant: Clea")
-    CreditsSection:NewLabel("Scripter:Vet")
+    CreditsSection:NewLabel("Gui Maker: xHeptc")
+    CreditsSection:NewLabel("Scripter: Jay")
     CreditsSection:NewLabel("Aimbot Maker: Loompic")
-    CreditsSection:NewLabel("Silent Aim Maker: m_gnet")
 
 
 
@@ -149,5 +125,3 @@ end)
     SettingsSection:NewKeybind("Toggle", "Toggles the Gui", Enum.KeyCode.F, function()
         Library:ToggleUI()
     end)
-end)
-end)
