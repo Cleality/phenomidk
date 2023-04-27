@@ -41,11 +41,12 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
     -- HOOPZ
     local Hoopz = Window:NewTab("Hoopz")
     local HoopzSection = Hoopz:NewSection("Hoopz")
-    
+  
+  
     HoopzSection:NewButton("Hoopz GUI", "Sick Gui", function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Cleality/phenomidk/main/HoopzOpGui"))()
     end)
-
+  
 
 
     -- PLAYER
