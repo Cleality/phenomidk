@@ -31,11 +31,11 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
     end)
     
     MainSection:NewButton("Bounce All (Z)", "Just press x when  green", function()
-        loadstring(game:HttpGet("loadstring(game:HttpGet("https://raw.githubusercontent.com/Cleality/phenomidk/main/bounceall",true))()
+        loadstring(game:HttpGet("loadstring(game:HttpGet("https://raw.githubusercontent.com/Cleality/phenomidk/main/bounceall"))()
     end)
     
     MainSection:NewButton("Bounce All (Z)", "press z when u have ball", function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Cleality/phenomidk/main/autoguard",true))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Cleality/phenomidk/main/autoguard"))()
     end)
     
     MainSection:NewButton("Ball Mag (Press R)", "Gives you Ball Mag", function()
