@@ -18,6 +18,10 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
         loadstring(game:HttpGet("https://raw.githubusercontent.com/carolesdaughter/Roblox-Phenom-Silent-Aims/main/NormalAimbot.lua"))()
     end)
     
+    MainSection:NewButton("Auto Guard C)", "Pres c to go to neearest ball function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Cleality/phenomidk/main/autoguard",true))()
+    end)
+    
     
     MainSection:NewButton("Ball Mag (Press R)", "Gives you Ball Mag", function()
         local UIS = game:GetService('UserInputService')
