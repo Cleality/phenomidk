@@ -30,10 +30,6 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
         loadstring(game:HttpGet("https://raw.githubusercontent.com/carolesdaughter/Roblox-Phenom-Silent-Aims/main/TBot.lua"))()
     end)
     
-    MainSection:NewButton("Bounce All (Z)", "Just press x when  green", function()
-        loadstring(game:HttpGet("loadstring(game:HttpGet("https://raw.githubusercontent.com/Cleality/phenomidk/main/bounceall"))()
-    end)
-    
     MainSection:NewButton("Bounce All (Z)", "press z when u have ball", function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Cleality/phenomidk/main/autoguard"))()
     end)
