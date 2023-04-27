@@ -1,5 +1,5 @@
 _G.brah = false
-_G.keybind = "c"
+_G.keybind = "C"
 game.Players.LocalPlayer:GetMouse().KeyDown:connect(
 function(key)
 if key:lower() == _G.keybind and _G.brah == false then
