@@ -36,6 +36,16 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
         end
         end)
     end)
+    
+    
+    -- HOOPZ
+    local Hoopz = Window:NewTab("Hoopz")
+    local HoopzSection = Hoopz:NewSection("Hoopz")
+    
+    MainSection:NewButton("Loom's Aimbot", "Gives you Aimbot", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Cleality/phenomidk/main/HoopzOpGui"))()
+    end)
+
 
 
     -- PLAYER
