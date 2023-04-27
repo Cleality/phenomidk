@@ -38,10 +38,6 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Cleality/phenomidk/main/autoguard",true))()
     end)
     
-    MainSection:NewButton("The hoopz cool trail thing?", "might change ball color idk", function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Cleality/phenomidk/main/Idk",true))()
-    end)
-    
     MainSection:NewButton("Ball Mag (Press R)", "Gives you Ball Mag", function()
         local UIS = game:GetService('UserInputService')
         local plr = game.Players.LocalPlayer
