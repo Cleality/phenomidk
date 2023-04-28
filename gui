@@ -18,7 +18,7 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
         loadstring(game:HttpGet("https://raw.githubusercontent.com/carolesdaughter/Roblox-Phenom-Silent-Aims/main/NormalAimbot.lua"))()
     end)
     
-    MainSection:NewButton("Auto Guard (C)", "Prss c when near a ball", function()
+    MainSection:NewButton("Auto Guard (Z)", "Prss c when near a ball", function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Cleality/phenomidk/main/autoguard"))()
     end)
     
