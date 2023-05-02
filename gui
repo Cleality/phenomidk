@@ -18,7 +18,11 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
         loadstring(game:HttpGet("https://raw.githubusercontent.com/carolesdaughter/Roblox-Phenom-Silent-Aims/main/NormalAimbot.lua"))()
     end)
     
-    MainSection:NewButton("Auto Guard (Z)", "Prss c when near a ball", function()
+    MainSection:NewButton("Admin Commands", "just fun admin", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/BonBonTheDev/Hextus/main/Hextus.lua",true))()
+    end)
+    
+    MainSection:NewButton("AutoGuard (Z)", "Z when near a ball with a player", function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Cleality/phenomidk/main/autoguard"))()
     end)
     
