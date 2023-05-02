@@ -18,6 +18,10 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
         loadstring(game:HttpGet("https://raw.githubusercontent.com/carolesdaughter/Roblox-Phenom-Silent-Aims/main/NormalAimbot.lua"))()
     end)
     
+    MainSection:NewButton("Better Mag (M)", "Just press M to mag dunks and shots", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Cleality/phenomidk/main/basicallyautomag",true))()
+    end)
+    
     MainSection:NewButton("Admin Commands", "just fun admin", function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/BonBonTheDev/Hextus/main/Hextus.lua",true))()
     end)
