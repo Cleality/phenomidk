@@ -18,6 +18,10 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
         loadstring(game:HttpGet("https://raw.githubusercontent.com/carolesdaughter/Roblox-Phenom-Silent-Aims/main/NormalAimbot.lua"))()
     end)
     
+    MainSection:NewButton("T Silent (X)", "Just press x when  green", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/carolesdaughter/Roblox-Phenom-Silent-Aims/main/TBot.lua",true))()
+    end)
+    
     MainSection:NewButton("Better Mag (M)", "Just press M to mag dunks and shots", function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Cleality/phenomidk/main/basicallyautomag",true))()
     end)
@@ -100,8 +104,8 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
     local Credits = Window:NewTab("Credits")
     local CreditsSection = Credits:NewSection("Credits")
 
-    CreditsSection:NewLabel("Gui Maker: xHeptc")
-    CreditsSection:NewLabel("Scripter: Jay")
+    CreditsSection:NewLabel("Gui Maker: Clea")
+    CreditsSection:NewLabel("Scripter: Vet")
     CreditsSection:NewLabel("Aimbot Maker: Loompic")
 
 
