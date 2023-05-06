@@ -9,11 +9,7 @@ if LocalPlayer:IsInGroup(groupId) then
 print("Checking if user is whitelisted")
 wait(1)
 print("Starting up")
-wait(2)
-print("Initiating")
-wait(2)
-print("Loading")
-wait(3)
+print("User is Whitelisted!")
 print("Succesfully loaded! enjoy the script")
  
 wait(1.2)
@@ -48,8 +44,8 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
         loadstring(game:HttpGet("https://raw.githubusercontent.com/carolesdaughter/Roblox-Phenom-Silent-Aims/main/BounceBot.lua",true))()
     end)
     
-    MainSection:NewButton("Admin Commands", "just fun admin", function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/DigitalityScripts/roblox-scripts/main/ProtonFree'))()
+    MainSection:NewButton("Camlock BOunce", "t or x idk", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Cleality/phenomidk/main/Phenom-Bounce-Camlock",true))()
     end)
     
     MainSection:NewButton("AutoGuard (Z)", "Z when near a ball with a player", function()
@@ -69,16 +65,6 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
         game.Workspace.Map.Basketball.Handle.CFrame = Game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
         end
         end)
-    end)
-    
-    
-     -- PHENOM SCRIPTS
-    local PhenomScripts = Window:NewTab("PhenomScripts")
-    local PhenomScriptsSection = Hoopz:NewSection("PhenomScripts")
-    
-    
-    PhenomScripts:NewButton("Phenom Bounce Camlock", "Press t or x", function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Cleality/phenomidk/main/Phenom-Bounce-Camlock",true))()
     end)
     
     
