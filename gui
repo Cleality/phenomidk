@@ -1,8 +1,30 @@
+--PHENOMWARE
+ 
+ 
+local LocalPlayer = game:GetService('Players').LocalPlayer
+ 
+local groupId = 15391124
+ 
+if LocalPlayer:IsInGroup(groupId) then
+print("Checking if user is whitelisted")
+wait(1)
+print("Starting up")
+wait(2)
+print("Initiating")
+wait(2)
+print("Loading")
+wait(3)
+print("Succesfully loaded! enjoy the script")
+ 
+wait(1.2)
 game.StarterGui:SetCore("SendNotification", {
-	Title = "Phenom";
-	Text = "Script Successfully Loaded";
-	Duration = 5;
+Title = "Scriptware"; -- the title (ofc)
+Text = "scriptware was developed by vet#7982 and Clea#6160, thanks for using the script"; -- what the text says (ofc)
+Icon = "rbxassetid://13120533534"; -- the image if u want. 
+Duration = 5; -- how long the notification should in secounds
+Button = "Whielisted!
 })
+
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
     local Window = Library.CreateLib("Phenom", "GrapeTheme")
  
