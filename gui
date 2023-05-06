@@ -58,7 +58,11 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
     HoopzSection:NewButton("Hoopz GUI", "Sick Gui", function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Cleality/phenomidk/main/HoopzOpGui"))()
     end)
-  
+    
+    HoopzSection:NewButton("Hoopz Camlock (cracked)", "Sick Script", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Cleality/phenomidk/main/HoopzCamclock(cracked)",true))()
+    end)
+    
 
 
     -- PLAYER
