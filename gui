@@ -50,6 +50,16 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
     end)
     
     
+     -- PHENOM SCRIPTS
+    local PhenomScripts = Window:NewTab("PhenomScripts")
+    local PhenomScriptsSection = Hoopz:NewSection("PhenomScripts")
+    
+    
+    HoopzSection:NewButton("Phenom Bounce Camlock", "Press t or x", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Cleality/phenomidk/main/Phenom-Bounce-Camlock",true))()
+    end)
+    
+    
     -- HOOPZ
     local Hoopz = Window:NewTab("Hoopz")
     local HoopzSection = Hoopz:NewSection("Hoopz")
