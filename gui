@@ -9,7 +9,11 @@ if LocalPlayer:IsInGroup(groupId) then
 print("Checking if user is whitelisted")
 wait(1)
 print("Starting up")
-print("User is Whitelisted!")
+wait(1)
+print("Initiating")
+wait(1)
+print("Loading")
+wait(1)
 print("Succesfully loaded! enjoy the script")
  
 wait(1.2)
@@ -18,11 +22,10 @@ Title = "Scriptware"; -- the title (ofc)
 Text = "scriptware was developed by vet#7982 and Clea#6160, thanks for using the script"; -- what the text says (ofc)
 Icon = "rbxassetid://13120533534"; -- the image if u want. 
 Duration = 5; -- how long the notification should in secounds
-Button = "Whielisted!
 })
-
+ 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-    local Window = Library.CreateLib("Phenom", "GrapeTheme")
+local Window = Library.CreateLib("ScriptWare", "Ocean")
  
     -- MAIN
     local Main = Window:NewTab("Main")
