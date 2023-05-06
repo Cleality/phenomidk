@@ -83,8 +83,7 @@ local Window = Library.CreateLib("ScriptWare", "Ocean")
     HoopzSection:NewButton("Hoopz Camlock (cracked)", "Sick Script", function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Cleality/phenomidk/main/HoopzCamclock(cracked)",true))()
     end)
-    
-
+   
 
     -- PLAYER
     local Player = Window:NewTab("Player")
