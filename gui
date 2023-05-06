@@ -74,7 +74,6 @@ local Window = Library.CreateLib("ScriptWare", "Ocean")
     local Hoopz = Window:NewTab("Hoopz")
     local HoopzSection = Hoopz:NewSection("Hoopz")
   
-  
     HoopzSection:NewButton("Hoopz GUI", "Sick Gui", function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Cleality/phenomidk/main/HoopzOpGui"))()
     end)
@@ -88,8 +87,6 @@ local Window = Library.CreateLib("ScriptWare", "Ocean")
     local Player = Window:NewTab("Player")
     local PlayerSection = Player:NewSection("Player")
     
-    
-
     PlayerSection:NewButton("Infinite Jumps", "Gives you Infinite Jumps", function()    
     local InfiniteJumpEnabled = true
     game:GetService("UserInputService").JumpRequest:connect(function()
