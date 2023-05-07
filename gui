@@ -44,6 +44,7 @@ local Window = Library.CreateLib("ScriptWare", "Ocean")
     end)
     
     
+    
     -- HOOPZ
     local Hoopz = Window:NewTab("Hoopz")
     local HoopzSection = Hoopz:NewSection("Hoopz")
@@ -56,6 +57,7 @@ local Window = Library.CreateLib("ScriptWare", "Ocean")
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Cleality/phenomidk/main/HoopzCamclock(cracked)",true))()
     end)
    
+
 
     -- PLAYER
     local Player = Window:NewTab("Player")
@@ -70,6 +72,8 @@ local Window = Library.CreateLib("ScriptWare", "Ocean")
     end)
 
     end)
+
+
 
     -- Teleportation
     local Teleportation = Window:NewTab("Teleportation")
