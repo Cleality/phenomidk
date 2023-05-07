@@ -1,3 +1,19 @@
+local LocalPlayer = game:GetService('Players').LocalPlayer
+ 
+local groupId = 15391124
+ 
+if LocalPlayer:IsInGroup(groupId) then
+print("Checking if user is whitelisted")
+wait(1)
+print("Starting up")
+wait(1)
+print("Initiating")
+wait(1)
+print("Loading")
+wait(1)
+print("Succesfully loaded! enjoy the script")
+ 
+wait(1.2)
 game.StarterGui:SetCore("SendNotification", {
 	Title = "Phenom";
 	Text = "Script Successfully Loaded";
