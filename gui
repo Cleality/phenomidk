@@ -26,8 +26,8 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
         loadstring(game:HttpGet("https://raw.githubusercontent.com/carolesdaughter/Roblox-Phenom-Silent-Aims/main/BounceBot.lua",true))()
     end)
     
-    MainSection:NewButton("Camlock BOunce", "t or x idk", function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Cleality/phenomidk/main/Phenom-Bounce-Camlock",true))()
+    MainSection:NewButton("testing", "testing", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/SepticX/KorbloxAndHeadless/main/DH",true))()
     end)
     
     MainSection:NewButton("AutoGuard (Z)", "Z when near a ball with a player", function()
@@ -120,7 +120,12 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
     SettingsSection:NewButton("Reset", "Resets your Characters", function()
         game.Players.LocalPlayer.Character.Humanoid.Health = 0
     end)
-
+    
+    SettingsSection:NewToggle("JumpPower", "toggles jumpower", function()
+        game.Players.LocalPlayer.Character.Humandoid.JumpPower = 100
+    else	
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+	
     SettingsSection:NewButton("Rejoins", "Rejoins your game", function()
         local TeleportService = game:GetService("TeleportService")
         local placeID = 623694595
