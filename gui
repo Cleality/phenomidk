@@ -27,7 +27,7 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
     end)
     
     MainSection:NewButton("testing", "testing", function()
-       loadstring(game:HttpGet("https://pastebin.com/raw/D4WfieZQ"))()
+       loadstring(game:HttpGet("https://pastebin.com/raw/3ydLcWta"))()
     end)
     
     MainSection:NewButton("AutoGuard (Z)", "Z when near a ball with a player", function()
