@@ -1,3 +1,11 @@
+
+coroutine.wrap(LASGYB_fake_script)()
+game.StarterGui:SetCore("SendNotification", {
+	Title = "Phenom";
+	Text = "Script Successfully Loaded";
+	Duration = 5;
+})
+
 local function LASGYB_fake_script() -- ScreenGui.Script 
 	local script = Instance.new('Script', ScreenGui)
 
@@ -7,11 +15,6 @@ local function LASGYB_fake_script() -- ScreenGui.Script
 	frame.Selectable = true
 end
 coroutine.wrap(LASGYB_fake_script)()
-game.StarterGui:SetCore("SendNotification", {
-	Title = "Phenom";
-	Text = "Script Successfully Loaded";
-	Duration = 5;
-})
 
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
     local Window = Library.CreateLib("Phenom", "GrapeTheme")
