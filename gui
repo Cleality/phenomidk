@@ -1,7 +1,5 @@
-
-coroutine.wrap(LASGYB_fake_script)()
 game.StarterGui:SetCore("SendNotification", {
-	Title = "Phenom";
+Title = "Phenom";
 	Text = "Script Successfully Loaded";
 	Duration = 5;
 })
