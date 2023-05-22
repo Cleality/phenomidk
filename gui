@@ -18,7 +18,6 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
         loadstring(game:HttpGet("https://raw.githubusercontent.com/carolesdaughter/Roblox-Phenom-Silent-Aims/main/NormalAimbot.lua
     "))()
     end)
-    https://raw.githubusercontent.com/carolesdaughter/Roblox-Phenom-Silent-Aims/main/NormalAimbot.lua
     
     MainSection:NewButton("T Silent (X)", "Just press x when  green", function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/carolesdaughter/Roblox-Phenom-Silent-Aims/main/TBot.lua",true))()
