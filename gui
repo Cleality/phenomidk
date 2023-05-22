@@ -1,10 +1,12 @@
 game.StarterGui:SetCore("SendNotification", {
-        Title = "Phenom";
+	Title = "Phenom";
 	Text = "Script Successfully Loaded";
 	Duration = 5;
 })
+local.Draggable = true
+
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-    local Window = Library.CreateLib("Phenom", "GrapeTheme")
+    local Window = Library.CreateLib("Phenomware", "GrapeTheme")
  
     -- MAIN
     local Main = Window:NewTab("Main")
@@ -15,7 +17,7 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
     end)
     
     MainSection:NewButton("NormalSIlent (X)", "Just press x when  green", function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/carolesdaughter/Roblox-Phenom-Silent-Aims/main/NormalAimbot.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/carolesdaughter/Roblox-Phenom-Silent-Aims/main/NormalAimbot.lua,true"))()
     end)
     
     MainSection:NewButton("T Silent (X)", "Just press x when  green", function()
