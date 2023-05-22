@@ -1,12 +1,11 @@
 game.StarterGui:SetCore("SendNotification", {
 	Title = "Phenom";
-	Text = "Silent Aims";
+	Text = "Script Successfully Loaded";
 	Duration = 5;
 })
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Testing Hub", "Dark")
- 
---MAIN
+    local Window = Library.CreateLib("Phenom", "GrapeTheme")
+    --MAIN
 local Main = Window:NewTab("Scripties")
 local MainSection = Main:NewSection("Scripties")
  
