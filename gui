@@ -1,36 +1,53 @@
 game.StarterGui:SetCore("SendNotification", {
 	Title = "Phenom";
-	Text = "Script Successfully Loaded";
+	Text = "Silent Aims";
 	Duration = 5;
 })
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-    local Window = Library.CreateLib("Phenom", "GrapeTheme")
  
-    -- MAIN
-    local Main = Window:NewTab("Main")
-    local MainSection = Main:NewSection("Main")
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Testing Hub", "Dark")
+ 
+--MAIN
+local Main = Window:NewTab("Scripties")
+local MainSection = Main:NewSection("Scripties")
+ 
+MainSection:NewButton("TBot", "Phenom", function()
+   loadstring(game:HttpGet('https://github.com/carolesdaughter/Roblox-Phenom-Silent-Aims/blob/main/TBot.lua'))()
+end)
 
-    MainSection:NewButton("NormalSIlent (X)", "Just press x when  green", function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/carolesdaughter/Roblox-Phenom-Silent-Aims/main/NormalAimbot.lua,true"))()
-    end)
-    
-    MainSection:NewButton("T Silent (X)", "Just press x when  green", function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/carolesdaughter/Roblox-Phenom-Silent-Aims/main/TBot.lua",true))()
-    end)
-    
-    MainSection:NewButton("Bounce Silent (X)", "Just press x when  green", function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/carolesdaughter/Roblox-Phenom-Silent-Aims/main/BounceBot.lua",true))()
-    end)
-    
-    MainSection:NewButton("testing", "testing", function()
-       loadstring(game:HttpGet("https://pastebin.com/raw/hAUL40vs"))()
-    end)
-    
-    MainSection:NewButton("AutoGuard (Z)", "Z when near a ball with a player", function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Cleality/phenomidk/main/autoguard"))()
-    end)
-    
-    MainSection:NewButton("Ball Mag (Press R)", "Gives you Ball Mag", function()
+MainSection:NewButton("Silent aiM!!!!!", " All Power Silent Aim!", function()
+    loadstring(game:HttpGet('https://pastebin.com/raw/yPY7v700',true))();
+end)
+ 
+MainSection:NewButton("Bounce Silent aim", "x", function()
+    loadstring(game:HttpGet('https://pastebin.com/raw/SY8f8Srg'))()
+end)
+ 
+MainSection:NewButton("fc dunk", "look at rim press x", function()
+    loadstring(game:HttpGet('https://pastebin.com/raw/FU2P2ujK'))()
+end)
+ 
+MainSection:NewButton("aimstudio checker", "click to see", function()
+    loadstring(game:HttpGet('https://pastebin.com/raw/vBPYpCaj'))()
+end)
+
+MainSection:NewButton("Flat Arc!", "only works at 75 line!", function()
+    loadstring(game:HttpGet('https://pastebin.com/raw/0GSjPHBR',true))();
+end)
+
+MainSection:NewButton("Auto Score!", "Pushin N!", function()
+    loadstring(game:HttpGet('https://pastebin.com/raw/5EaszTNq',true))();
+end)
+
+MainSection:NewButton("Follow Ball!", "Press M!", function()
+    loadstring(game:HttpGet('https://pastebin.com/raw/18xusads',true))();
+end)
+
+MainSection:NewButton("Bounce All!", "Pushin P!", function()
+    loadstring(game:HttpGet('https://pastebin.com/raw/kyzZb7xk',true))();
+end)
+
+MainSection:NewButton("Ball Mag (Press R)", "Gives you Ball Mag", function()
         local UIS = game:GetService('UserInputService')
         local plr = game.Players.LocalPlayer
         local Char = plr.Character or plr.CharacterAded:Wait()
@@ -43,27 +60,13 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
         end
         end)
     end)
-    
-    
-    
-    -- HOOPZ
-    local Hoopz = Window:NewTab("Hoopz")
-    local HoopzSection = Hoopz:NewSection("Hoopz")
-  
-    HoopzSection:NewButton("Hoopz GUI", "Sick Gui", function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Cleality/phenomidk/main/HoopzOpGui"))()
-    end)
-    
-    HoopzSection:NewButton("Hoopz Camlock (cracked)", "Sick Script", function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/carolesdaughter/Roblox-Hoopz-Silent-Aims/main/FindPartOnRayWithIgnoreList.lua",true))()
-    end)
-   
 
-
-    -- PLAYER
+-- PLAYER
     local Player = Window:NewTab("Player")
     local PlayerSection = Player:NewSection("Player")
-    
+ 
+ 
+ 
     PlayerSection:NewButton("Infinite Jumps", "Gives you Infinite Jumps", function()    
     local InfiniteJumpEnabled = true
     game:GetService("UserInputService").JumpRequest:connect(function()
@@ -71,67 +74,30 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
 		game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
 	end
     end)
-
+ 
     end)
-
-    PlayerSection:NewButton("Ink Monster", "litteral ink monsteer", function()
-       loadstring(game:HttpGet("https://pastebin.com/raw/qLACUGL1",true))()
-    end)
-
-    PlayerSection:NewButton("Netless", "makes animtion scripts say together", function()
-       loadstring(game:HttpGet("https://pastebin.com/raw/xxvDNS0P",true))()
-    end)
-
-
-    -- Teleportation
-    local Teleportation = Window:NewTab("Teleportation")
-    local TPSection = Teleportation:NewSection("Teleportation")
-
-    TPSection:NewButton("RimTp1", "Tps you to a certain rim", function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-16.9935493, 42.9078331, 143.324341, -1, 0, 0, 0, 1, 0, 0, 0, -1) 
-    end)
-
-    TPSection:NewButton("RimTp2", "Tps you to a certain rim", function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-16.9944324, 42.6078377, -46.1025467, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-    end)
-
-    TPSection:NewButton("BallSpawn1", "Tps you to a Ball Spawner", function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-16.9139996, 27.8899994, -32.2940369, -1.1920929e-07, -0, -1.00000012, 0, 1, -0, 1.00000012, 0, -1.1920929e-07)
-    end)
-
-    TPSection:NewButton("BallSpawn2", "Tps you to a Ball Spawner", function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-17.0290585, 27.8799992, 128.626984, -1.1920929e-07, 0, 1.00000012, 0, 1, 0, -1.00000012, 0, -1.1920929e-07)
-    end)
-    
-    
-
-    -- Credits
-
-    local Credits = Window:NewTab("Credits")
-    local CreditsSection = Credits:NewSection("Credits")
-
-    CreditsSection:NewLabel("Gui Maker: Clea")
-    CreditsSection:NewLabel("Scripter: Vet")
-    CreditsSection:NewLabel("Aimbot Maker: Loompic")
-
-
-
-    --Settings
+ 
+PlayerSection:NewButton("admin", "you have admin", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/fatesc/fates-admin/main/main.lua"))();
+end)
+ 
+ 
+--Settings
     local Settings = Window:NewTab("Settings")
     local SettingsSection = Settings:NewSection("Settings")
-
+ 
     SettingsSection:NewButton("Reset", "Resets your Characters", function()
         game.Players.LocalPlayer.Character.Humanoid.Health = 0
     end)
-	
+ 
     SettingsSection:NewButton("Rejoins", "Rejoins your game", function()
         local TeleportService = game:GetService("TeleportService")
         local placeID = 623694595
         local player = Game.Players.LocalPlayer
-         
+ 
         TeleportService:Teleport(placeID, player)
     end)
-
-    SettingsSection:NewKeybind("Toggle", "Toggles the Gui", Enum.KeyCode.F, function()
+ 
+    SettingsSection:NewKeybind("Toggle", "Toggles the Gui", Enum.KeyCode.LeftControl, function()
         Library:ToggleUI()
     end)
