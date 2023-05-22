@@ -4,15 +4,15 @@ game.StarterGui:SetCore("SendNotification", {
 	Duration = 5;
 })
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-    local Window = Library.CreateLib("Phenomware", "GrapeTheme")
+    local Window = Library.CreateLib("Phenom", "GrapeTheme")
  
     -- MAIN
     local Main = Window:NewTab("Main")
     local MainSection = Main:NewSection("Main")
 
-    MainSection:NewButton("Rewind TIme (buttons)", "rewinds u obviously", function()
-        loadstring(game:HttpGet("https://pastebin.com/raw/iNd3xTPv", true))()
-    end)
+    MainSection:NewButton("Loom's Aimbot", "Gives you Aimbot", function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Loompic/Phenom-Aimbot/main/Bot"))()
+    end
     
     MainSection:NewButton("NormalSIlent (X)", "Just press x when  green", function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/carolesdaughter/Roblox-Phenom-Silent-Aims/main/NormalAimbot.lua,true"))()
