@@ -11,12 +11,14 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
     local MainSection = Main:NewSection("Main")
 
     MainSection:NewButton("Rewind TIme (buttons)", "rewinds u obviously", function()
-        loadstring(game:HttpGet("https://pastebin.com/raw/cgWLwdN9", true))()
+        loadstring(game:HttpGet("https://pastebin.com/raw/iNd3xTPv", true))()
     end)
     
     MainSection:NewButton("NormalSIlent (X)", "Just press x when  green", function()
-        loadstring(game:HttpGet("https://pastebin.com/raw/iNd3xTPv"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/carolesdaughter/Roblox-Phenom-Silent-Aims/main/NormalAimbot.lua
+    "))()
     end)
+    https://raw.githubusercontent.com/carolesdaughter/Roblox-Phenom-Silent-Aims/main/NormalAimbot.lua
     
     MainSection:NewButton("T Silent (X)", "Just press x when  green", function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/carolesdaughter/Roblox-Phenom-Silent-Aims/main/TBot.lua",true))()
