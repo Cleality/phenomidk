@@ -5,8 +5,8 @@ game.StarterGui:SetCore("SendNotification", {
 })
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
     local Window = Library.CreateLib("Phenom", "GrapeTheme")
-    --MAIN
-local Main = Window:NewTab("Scripties")
+ 
+    local Main = Window:NewTab("Scripties")
 local MainSection = Main:NewSection("Scripties")
  
 MainSection:NewButton("TBot", "Phenom", function()
