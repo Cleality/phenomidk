@@ -52,16 +52,14 @@ end)
         end)
     end)
 
-
     -- PLAYER
-    local Player = Window:NewTab("Other Scripts")
-    local PlayerSection = Player:NewSection("Other Scripts")
+    local Player = Window:NewTab("Other SCWIPTSSSSS")
+    local PlayerSection = Player:NewSection("Other SCWIPTSSSSS")
    
 
 PlayerSection:NewButton("aimstudio checker", "click to see", function()
     loadstring(game:HttpGet('https://pastebin.com/raw/vBPYpCaj'))()
 end)
-
     PlayerSection:NewButton("Admin!", "Gives Admin", function()    
 loadstring(game:HttpGet("https://raw.githubusercontent.com/fatesc/fates-admin/main/main.lua"))();
 end)
@@ -73,6 +71,7 @@ end)
 		game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
 	end
     end)
+
     end)
 
 
