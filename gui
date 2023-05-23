@@ -1,1 +1,1 @@
-loadstring(game:HttpGet('https://raw.githubusercontent.com/Cutsences/SteepSteps/main/SteepSteps.lua'))()
+loadstring(game:HttpGet("https://pastebin.com/raw/An1XqMMd",true))()
