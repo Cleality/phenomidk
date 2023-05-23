@@ -1,14 +1,15 @@
 game.StarterGui:SetCore("SendNotification", {
-	Title = "OZU";
-	Text = "OZU'S SCRIPTSSSSSS";
+	Title = "Obfuscated";
+	Text = "PhenomWare";
+	Button = "sick!"
 	Duration = 5;
 })
-local Library = loadstring(game:HttpGet("https://pastebin.com/raw/vff1bQ9F"))()
+local Library = loadstring(game:HttpGet("https://pastebin.com/raw/vff1scibQ9F"))()
 local Window = Library.CreateLib("testing", "Synapse")
   
   -- MAIN
-    local Main = Window:NewTab("OZU'S SCRIPTSSSSSS")
-    local MainSection = Main:NewSection("OZU'S SCRIPTSSSSSS")
+    local Main = Window:NewTab("PhenomWare")
+    local MainSection = Main:NewSection("PhenomWare")
 
 MainSection:NewButton("no HL nojumpbot", "x", function()
     loadstring(game:HttpGet('https://pastebin.com/raw/WUiTmST1',true))();
@@ -53,8 +54,8 @@ end)
     end)
 
     -- PLAYER
-    local Player = Window:NewTab("Other SCWIPTSSSSS")
-    local PlayerSection = Player:NewSection("Other SCWIPTSSSSS")
+    local Player = Window:NewTab("Other Scripts")
+    local PlayerSection = Player:NewSection("Other Scripts")
    
 
 PlayerSection:NewButton("aimstudio checker", "click to see", function()
