@@ -94,3 +94,6 @@ end)
     SettingsSection:NewKeybind("Toggle", "Toggles the Gui", Enum.KeyCode.RightControl, function()
         Library:ToggleUI()
     end)
+    Frame.Parent.Draggable = true
+    end)
+    
