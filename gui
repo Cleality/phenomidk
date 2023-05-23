@@ -1,2 +1,1 @@
-Callback = function()
-game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Cutsences/SteepSteps/main/SteepSteps.lua'))()
