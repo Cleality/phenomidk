@@ -52,6 +52,7 @@ end)
         end)
     end)
 
+
     -- PLAYER
     local Player = Window:NewTab("Other Scripts")
     local PlayerSection = Player:NewSection("Other Scripts")
@@ -72,7 +73,6 @@ end)
 		game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
 	end
     end)
-
     end)
 
 
