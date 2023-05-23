@@ -53,8 +53,8 @@ end)
     end)
 
     -- PLAYER
-    local Player = Window:NewTab("Other SCWIPTSSSSS")
-    local PlayerSection = Player:NewSection("Other SCWIPTSSSSS")
+    local Player = Window:NewTab("Other")
+    local PlayerSection = Player:NewSection("Other")
    
 
 PlayerSection:NewButton("aimstudio checker", "click to see", function()
