@@ -14,19 +14,19 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
         loadstring(game:HttpGet("https://raw.githubusercontent.com/Loompic/Phenom-Aimbot/main/Bot"))()
     end)
     
-    MainSection:NewButton("Loom's Aimbot", "Gives you Aimbot", function()
+    MainSection:NewButton("Normal Silent (X), "aims for you", function
         loadstring(game:HttpGet("https://raw.githubusercontent.com/carolesdaughter/Roblox-Phenom-Silent-Aims/main/NormalAimbot.lua",true))()
     end)
     
-    MainSection:NewButton("Loom's Aimbot", "Gives you Aimbot", function()
+    MainSection:NewButton("T Silent (X), "aims for you", function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/carolesdaughter/Roblox-Phenom-Silent-Aims/main/TBot.lua",true))()
     end)
     
-    MainSection:NewButton("Loom's Aimbot", "Gives you Aimbot", function()
+    MainSection:NewButton("No Jump ilent (X), "aims for you", function()
         loadstring(game:HttpGet("https://github.com/carolesdaughter/Roblox-Phenom-Silent-Aims/main/NoJumpBot.lua",true))()
     end)
     
-    MainSection:NewButton("Loom's Aimbot", "Gives you Aimbot", function()
+    MainSection:NewButton("Bounce Silent (X), "aims for you", function()
         loadstring(game:HttpGet("https://github.com/carolesdaughter/Roblox-Phenom-Silent-Aims/main/BounceBot.lua",true))()
     end)
     
