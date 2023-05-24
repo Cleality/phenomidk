@@ -1,0 +1,18 @@
+function onKeyPress(actionName, userInputState, inputObject)
+if userInputState == Enum.UserInputState.Begin then
+for i,v in pairs(game.Players:GetChildren()) do
+if v.TeamColor ~= game.Players.LocalPlayer.TeamColor then
+for i,v in pairs(v.Character:GetChildren()) do
+if v.Name == "Basketball" then
+print(v.Parent)
+game.Workspace.Owen_BuildsAWall.HumanoidRootPart.CFrame = v.Parent.HumanoidRootPart.CFrame
+end
+end
+else
+print("they're on your team noob")
+end
+end
+game.Workspace.Owen_BuildsAWall.HumanoidRootPart.CFrame = game.Workspace.Basketball.Handle.CFrame
+end
+end
+game.ContextActionService:BindAction("keyPress", onKeyPress, false, Enum.KeyCode.R)
