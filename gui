@@ -3,8 +3,8 @@ game.StarterGui:SetCore("SendNotification", {
 	Text = "PhenomWare";
 	Duration = 5;
 })
-local Library = loadstring(game:HttpGet("https://pastebin.com/raw/vff1scibQ9F"))()
-       local Window = Library.CreateLib("testing", "Synapse")
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+    local Window = Library.CreateLib("Phenom", "GrapeTheme")
  
     -- MAIN
     local Main = Window:NewTab("Main")
