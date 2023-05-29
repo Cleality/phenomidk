@@ -3,97 +3,1656 @@ game.StarterGui:SetCore("SendNotification", {
 	Text = "Script Successfully Loaded";
 	Duration = 5;
 })
+--cleality on YOUTUBE (PHENOM AIMBOTS IS MAGNETS)
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-    local Window = Library.CreateLib("Phenom", "GrapeTheme")
- 
-    -- MAIN
-    local Main = Window:NewTab("Main")
-    local MainSection = Main:NewSection("Main")
+local Window = Library.CreateLib("Moonexploits", "DarkTheme")
+local Tab = Window:NewTab("phenom ")
+local Section = Tab:NewSection("Aimbot")
+Section:NewButton("TBot Silent Aim", ".", function()
+local S, E = pcall(function()
+    _G.Stepped:Disconnect()
+    _G.InputBegan:Disconnect()
+end)
 
-    MainSection:NewButton("Loom's Aimbot", "Gives you Aimbot", function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Loompic/Phenom-Aimbot/main/Bot"))()
-    end)
+if S then
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Silent Aim",
+        Text = "Silent Aim was reset, Mode: TBot",
+        Duration = 3
+    })
 
-    MainSection:NewButton("Ball Mag (Press R)", "Gives you Ball Mag", function()
-        local UIS = game:GetService('UserInputService')
-        local plr = game.Players.LocalPlayer
-        local Char = plr.Character or plr.CharacterAded:Wait()
-        local Key = 'R'
-        UIS.InputBegan:Connect(function(Input, IsTyping)
-        if IsTyping then return end
-        local KeyPressed = Input.KeyCode
-        if KeyPressed == Enum.KeyCode[Key] then
-        game.Workspace.Map.Basketball.Handle.CFrame = Game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+    _G.Stepped = nil
+    _G.InputBegan = nil
+end
+
+if game.PlaceId == 4923146720 then
+    return game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "Error",
+        Text = "TBot can't be used in Playground",
+        Duration = 5,
+        Button1 = "Ok"
+    })
+end
+
+local Player = game.Players.LocalPlayer
+local UIS = game:GetService("UserInputService")
+local RS = game:GetService("RunService")
+
+local IsInFooting = false
+
+local HL = Instance.new("Highlight")
+HL.Enabled = false
+HL.Adornee = Player.Character
+HL.FillColor = Color3.fromRGB(25, 255, 25)
+HL.OutlineColor = Color3.fromRGB(0, 255, 0)
+HL.Parent = game.CoreGui
+
+local XYZ = {"X1", "Y1", "Z1", "X2", "Y2", "Z2"}
+local Selected; for _, Garbage in next, getgc(true) do
+    if type(Garbage) == "function" and getinfo(Garbage)["name"] == "selected1" then
+        Selected = Garbage
+    end
+end
+local Goals = {}; for _, Obj in next, workspace:GetDescendants() do
+    if Obj.Name == "Goal" and Obj:isA("BasePart") then
+        table.insert(Goals, Obj)
+    end
+end
+local Shuffled = {}; for _, Garbage in next, getgc(true) do
+    if type(Garbage) == "table" and rawget(Garbage, "1") and rawget(Garbage, "1") ~= true then
+        for z,x in next, Garbage do
+            Shuffled = Garbage
         end
-        end)
-    end)
+    end
+end
 
+local Clicker = getupvalue(Selected, 3)
 
-    -- PLAYER
-    local Player = Window:NewTab("Player")
-    local PlayerSection = Player:NewSection("Player")
+local GetKeyFromKeyTable = function()
+    local Keys = getupvalue(Selected, 4)
+    return Keys[1]
+end
+
+local RemoveKeyFromKeyTable = function()
+    local Keys = getupvalue(Selected, 4)
+    table.remove(Keys, 1)
+    setupvalue(Selected, 4, Keys)
+end
+
+local GetRandomizedTable = function(TorsoPosition, ShootPosition)
+    local UnrandomizedArgs = {
+        X1 = TorsoPosition.X,
+        Y1 = TorsoPosition.Y,
+        Z1 = TorsoPosition.Z,
+        X2 = ShootPosition.X,
+        Y2 = ShootPosition.Y,
+        Z2 = ShootPosition.Z
+    }
     
+    local RandomizedArgs = {
+        UnrandomizedArgs[Shuffled["1"]],
+        UnrandomizedArgs[Shuffled["2"]],
+        UnrandomizedArgs[Shuffled["3"]],
+        UnrandomizedArgs[Shuffled["4"]],
+        UnrandomizedArgs[Shuffled["5"]],
+        UnrandomizedArgs[Shuffled["6"]],
+    }
+    
+    return RandomizedArgs
+end
+
+local GetCorrectPosition = function(Position)
+    return Position - Player.Character.Torso.Position
+end
+
+local GetUnitPosition = function(Position)
+    return Position.Unit
+end
+
+local GetGoal = function()
+    local Distance, Goal = 9e9;
+    
+    for _, Obj in next, Goals do
+        local Magnitude = (Player.Character.Torso.Position - Obj.Position).Magnitude
+        
+        if Distance > Magnitude then
+            Distance = Magnitude
+            Goal = Obj
+        end
+    end
+    
+    return Goal
+end
+
+local GetDistance = function()
+    local Goal = GetGoal()
+    
+    return (Player.Character.Torso.Position - Goal.Position).Magnitude
+end
+
+local GetBasketball = function()
+     return Player.Character:FindFirstChildOfClass("Folder") 
+end
+
+local IsDunkAnimPlaying = function()
+    for _, Anim in next, Player.Character.Humanoid:GetPlayingAnimationTracks() do
+        if Anim.Animation.Name == "Dunk1" then
+            return true
+        end
+    end
+    
+    return false
+end
+
+local InFootingCheck = function()
+    local Distance = GetDistance()
+    local Basketball = GetBasketball()
+    
+    local Power; if Basketball ~= nil then
+        Power = Basketball.PowerValue.Value
+    else
+        IsInFooting = false
+        return
+    end
+    
+    if Distance > 57 and Distance < 97 then
+        IsInFooting = true
+    else
+        IsInFooting = false
+    end
+end
+
+local GetArc = function()
+    local Distance = GetDistance()
+    local Basketball = GetBasketball()
+    
+    local Arc
+    
+    if Distance > 57 and Distance < 63 then
+        Arc = 140
+    elseif Distance > 63 and Distance < 69 then
+        Arc = 135
+    elseif Distance > 69 and Distance < 74 then
+        Arc = 130
+    elseif Distance > 74 and Distance < 79 then
+        Arc = 125
+    elseif Distance > 79 and Distance < 82 then
+        Arc = 120
+    elseif Distance > 82 and Distance < 84 then
+        Arc = 115
+    elseif Distance > 84 and Distance < 88 then
+        Arc = 110
+    elseif Distance > 88 and Distance < 91 then
+        Arc = 100
+    elseif Distance > 91 and Distance < 92 then
+        Arc = 90
+    elseif Distance > 92 and Distance < 93 then
+        Arc = 85
+    elseif Distance > 93 and Distance < 94 then
+        Arc = 80
+    elseif Distance > 94 and Distance < 95 then
+        Arc = 75
+    elseif Distance > 95 and Distance < 96 then
+        Arc = 70
+    elseif Distance > 96 and Distance < 97 then
+        Arc = 67
+    end
+    
+    if IsDunkAnimPlaying() == false and Arc ~= nil then
+        Arc = Arc - 10
+    end
+    
+    print(Arc, Distance)
+    
+    return Arc
+end
+
+local Shoot = function()
+    local Goal = GetGoal()
+    local Arc = GetArc()
+    local CorrectPosition = GetCorrectPosition(Goal.Position + Vector3.new(0, Arc, 0) + Player.Character.Humanoid.MoveDirection)
+    local Position = GetUnitPosition(CorrectPosition)
+    local RandomizedArgs = GetRandomizedTable(Player.Character.Torso.Position, Position)
+    local Basketball = GetBasketball()
+    
+    local Key = GetKeyFromKeyTable()
+    
+    if type(Key) ~= "string" then
+        Key = "Shotta"
+    end
+    
+    Clicker:FireServer(Basketball, 100, RandomizedArgs, Key)
     
 
-    PlayerSection:NewButton("Infinite Jumps", "Gives you Infinite Jumps", function()    
-    local InfiniteJumpEnabled = true
-    game:GetService("UserInputService").JumpRequest:connect(function()
-	if InfiniteJumpEnabled then
-		game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
-	end
-    end)
+    if Key ~= "Shotta" then
+        RemoveKeyFromKeyTable()
+    end
+end
+            
+_G.InputBegan = UIS.InputBegan:Connect(function(Key, GPE)
+    if not GPE and Key.KeyCode == Enum.KeyCode.Jumping and Player.Character and Player.Character:FindFirstChild("Basketball") and IsInFooting then
+        if Player.Character.Humanoid:GetState() ~= Enum.HumanoidStateType.Jumping then
+            local Humanoid =  Player.Character.Humanoid
+            Humanoid.JumpPower = 67
+            Humanoid:LoadAnimation(Player.Character.Basketball.Dunk1):Play()
+            Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+            task.wait(0.325)
+        end
+        
+        Shoot()
+        Player.Character.Humanoid.JumpPower = 50
+    end
+end)
 
-    end)
-
-    -- Teleportation
-    local Teleportation = Window:NewTab("Teleportation")
-    local TPSection = Teleportation:NewSection("Teleportation")
-
-    TPSection:NewButton("RimTp1", "Tps you to a certain rim", function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-16.9935493, 42.9078331, 143.324341, -1, 0, 0, 0, 1, 0, 0, 0, -1) 
-    end)
-
-    TPSection:NewButton("RimTp2", "Tps you to a certain rim", function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-16.9944324, 42.6078377, -46.1025467, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-    end)
-
-    TPSection:NewButton("BallSpawn1", "Tps you to a Ball Spawner", function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-16.9139996, 27.8899994, -32.2940369, -1.1920929e-07, -0, -1.00000012, 0, 1, -0, 1.00000012, 0, -1.1920929e-07)
-    end)
-
-    TPSection:NewButton("BallSpawn2", "Tps you to a Ball Spawner", function()
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-17.0290585, 27.8799992, 128.626984, -1.1920929e-07, 0, 1.00000012, 0, 1, 0, -1.00000012, 0, -1.1920929e-07)
-    end)
+_G.Stepped = RS.Stepped:Connect(function()
+    InFootingCheck()
     
+    if IsInFooting then
+        HL.Enabled = false
+    else
+        HL.Enabled = false
+    end
     
+    if HL.Adornee.Parent == nil and Player.Character then
+        HL.Adornee = Player.Character
+    end
+end)
+    print("Clicked")
+end)
 
-    -- Credits
+Section:NewButton("Normal Silent", "", function()
+local S, E = pcall(function()
+    _G.Stepped:Disconnect()
+    _G.InputBegan:Disconnect()
+end)
 
-    local Credits = Window:NewTab("Credits")
-    local CreditsSection = Credits:NewSection("Credits")
+if S then
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Silent Aim",
+        Text = "Silent Aim was reset, Mode: Normal Aimbot",
+        Duration = 3
+    })
 
-    CreditsSection:NewLabel("Gui Maker: xHeptc")
-    CreditsSection:NewLabel("Scripter: Jay")
-    CreditsSection:NewLabel("Aimbot Maker: Loompic")
+    _G.Stepped = nil
+    _G.InputBegan = nil
+end
+
+local Player = game.Players.LocalPlayer
+local UIS = game:GetService("UserInputService")
+local RS = game:GetService("RunService")
+
+local Playground = (game.PlaceId == 4923146720)
+local IsInFooting = false
+
+local HL = Instance.new("Highlight")
+HL.Enabled = false
+HL.Adornee = Player.Character
+HL.FillColor = Color3.fromRGB(25, 255, 25)
+HL.OutlineColor = Color3.fromRGB(0, 255, 0)
+HL.Parent = game:GetService("CoreGui")
+
+local Goals = {} do
+    for _, Obj in next, game:GetDescendants() do
+        if Obj.Name == "Goal" and Obj:IsA("BasePart") then
+            table.insert(Goals, Obj)
+        elseif Obj.Name == "Part" and Obj:IsA("BasePart") and Obj.Size == Vector3.new(5, 1, 5) then
+            table.insert(Goals, Obj)
+        end
+    end
+end
+
+local Shuffled, Selected do
+    for _, Garbage in next, getgc(true) do
+        if type(Garbage) == "function" and getinfo(Garbage)["name"] == "selected1" then
+            Selected = Garbage
+        elseif type(Garbage) == "table" and rawget(Garbage, "1") and rawget(Garbage, "1") ~= true then
+            Shuffled = Garbage
+        end
+    end
+end
+
+local Clicker do
+    if Playground == false then
+        Clicker = getupvalue(Selected, 3)
+    else
+        Clicker = getupvalue(Selected, 5)
+    end
+end
+
+local GetClock = function()
+    local OldClock = getupvalue(Selected, 3)
+    local NewClock = OldClock + 1
+    
+    setupvalue(Selected, 3, NewClock)
+    
+    return NewClock
+end
+
+local GetKeyFromKeyTable = function()
+    local Keys = getupvalue(Selected, 4)
+    
+    if Playground == true then
+        return "Shotta_"
+    elseif type(Keys[1]) == "string" then
+        return Keys[1]
+    end
+    
+    return "Shotta"
+end
+
+local RemoveKeyFromKeyTable = function()
+    local StartTime = tick()
+    
+    repeat task.wait() until Player.Character == nil or Player.Character:FindFirstChild("Basketball") == nil or StartTime - tick() > 1.5
+    
+    if Player.Character == nil or StartTime - tick() > 1.5 then
+        return print("Didnt remove key")
+    end
+    
+    local Keys = getupvalue(Selected, 4)
+    
+    if type(Keys) == "table" then
+        print("Removed key")
+        table.remove(Keys, 1)
+        setupvalue(Selected, 4, Keys)
+    end
+end
+
+local GetRandomizedTable = function(TorsoPosition, ShootPosition)
+    local UnrandomizedArgs = {
+        X1 = TorsoPosition.X,
+        Y1 = TorsoPosition.Y,
+        Z1 = TorsoPosition.Z,
+        X2 = ShootPosition.X,
+        Y2 = ShootPosition.Y,
+        Z2 = ShootPosition.Z
+    }
+    
+    local RandomizedArgs = {
+        UnrandomizedArgs[Shuffled["1"]],
+        UnrandomizedArgs[Shuffled["2"]],
+        UnrandomizedArgs[Shuffled["3"]],
+        UnrandomizedArgs[Shuffled["4"]],
+        UnrandomizedArgs[Shuffled["5"]],
+        UnrandomizedArgs[Shuffled["6"]],
+    }
+    
+    return RandomizedArgs
+end
+
+local GetGoal = function()
+    local Distance, Goal = 9e9
+    
+    for _, Obj in next, Goals do
+        local Magnitude = (Player.Character.Torso.Position - Obj.Position).Magnitude
+        
+        if Distance > Magnitude then
+            Distance = Magnitude
+            Goal = Obj
+        end
+    end
+    
+    return Goal
+end
+
+local GetDistance = function()
+    local Goal = GetGoal()
+    local TorsoPosition = Player.Character.Torso.Position
+    
+    return (TorsoPosition - Goal.Position).Magnitude
+end
+
+local GetDirection = function(Position)
+    return (Position - Player.Character.Torso.Position).Unit
+end
+
+local GetMoveDirection = function()
+    local Direction = Player.Character.Humanoid.MoveDirection * 1.8
+    
+    if UIS:IsKeyDown(Enum.KeyCode.S) == true and UIS:IsKeyDown(Enum.KeyCode.W) == true then
+        Direction = Player.Character.Humanoid.MoveDirection * 0.5
+    elseif UIS:IsKeyDown(Enum.KeyCode.S) == true and UIS:IsKeyDown(Enum.KeyCode.W) == false then
+        Direction = Player.Character.Humanoid.MoveDirection * 0.8
+    elseif UIS:IsKeyDown(Enum.KeyCode.S) == false and UIS:IsKeyDown(Enum.KeyCode.W) == true then
+        Direction = Player.Character.Humanoid.MoveDirection * 1.2
+    end
+        
+    return Direction
+end
+
+local GetBasketball = function()
+    return Player.Character:FindFirstChildOfClass("Folder")
+end
+
+local InFootingCheck = function()
+    local Distance = GetDistance()
+    local Basketball = GetBasketball()
+    
+    local Power do 
+        if Basketball ~= nil then
+            Power = Basketball.PowerValue.Value
+        else
+            IsInFooting = false
+            return
+        end
+    end
+    
+    if Player.Character.Humanoid:GetState() ~= Enum.HumanoidStateType.Freefall then
+        if Power == 75 or Power == 100 then
+            Distance = Distance - 1
+        else
+            Distance = Distance - 3
+        end
+    end
+    
+    if Power == 75 then
+        if Distance > 57 and Distance < 61 then
+            IsInFooting = true
+        else
+            IsInFooting = false
+        end
+    elseif Power == 80 then
+        if Distance > 57 and Distance < 64 then
+            IsInFooting = true
+        else
+            IsInFooting = false
+        end
+    elseif Power == 85 then
+        if Distance > 57 and Distance < 70 then
+            IsInFooting = true
+        else
+            IsInFooting = false
+            end
+    elseif Power == 90 then
+        if Distance > 57 and Distance < 74 then
+            IsInFooting = true
+        else
+            IsInFooting = false
+        end
+    elseif Power == 95 then
+        if Distance > 57 and Distance < 82 then
+            IsInFooting = true
+        else
+            IsInFooting = false
+        end
+    elseif Power == 100 then
+        if Distance > 57 and Distance < 87 then
+            IsInFooting = true
+        else
+            IsInFooting = false
+        end
+    elseif Power < 75 then
+        IsInFooting = false
+    end
+end
+
+local GetArc = function()
+    local Distance = GetDistance()
+    local Basketball = GetBasketball()
+    
+    local Arc = nil
+    
+    local Power do
+        if Basketball ~= nil then
+            Power = Basketball.PowerValue.Value
+        else
+            return
+        end
+    end
+    
+    if Power == 75 then
+        if Distance > 57 and Distance < 59 then
+            Arc = 55
+        elseif Distance > 59 and Distance < 60 then
+            Arc = 50
+        elseif Distance > 60 and Distance < 61 then
+            Arc = 45
+        elseif Distance > 61 and Distance < 62 then
+            Arc = 40
+        end
+    elseif Power == 80 then
+        if Distance > 57 and Distance < 59 then
+            Arc = 75
+        elseif Distance > 59 and Distance < 63 then
+            Arc = 70
+        elseif Distance > 63 and Distance < 65 then
+            Arc = 60
+        elseif Distance > 65 and Distance < 69 then
+            Arc = 50
+        end
+    elseif Power == 85 then
+        if Distance > 57 and Distance < 63 then
+            Arc = 85
+        elseif Distance > 63 and Distance < 67 then
+            Arc = 80
+        elseif Distance > 67 and Distance < 70 then
+            Arc = 75
+        elseif Distance > 70 and Distance < 74 then
+            Arc = 60
+        end
+    elseif Power == 90 then
+        if Distance > 57 and Distance < 63 then
+            Arc = 100
+        elseif Distance > 63 and Distance < 67 then
+            Arc = 95
+        elseif Distance > 67 and Distance < 69 then
+            Arc = 90
+        elseif Distance > 69 and Distance < 74 then
+            Arc = 85
+        elseif Distance > 74 and Distance < 77 then
+            Arc = 75
+        elseif Distance > 77 and Distance < 79 then
+            Arc = 65
+        end
+    elseif Power == 95 then
+        if Distance > 57 and Distance < 58 then
+            Arc = 120
+        elseif Distance > 59 and Distance < 63 then
+            Arc = 115
+        elseif Distance > 63 and Distance < 68 then
+            Arc = 110
+        elseif Distance > 68 and Distance < 71 then
+            Arc = 105
+        elseif Distance > 71 and Distance < 74 then
+            Arc = 100
+        elseif Distance > 74 and Distance < 79 then
+            Arc = 95
+        elseif Distance > 79 and Distance < 81 then
+            Arc = 90
+        elseif Distance > 81 and Distance < 82 then
+            Arc = 65
+        elseif Distance > 82 and Distance < 86 then
+            Arc = 60
+        end
+    elseif Power == 100 then
+        if Distance > 57 and Distance < 66 then
+            Arc = 130
+        elseif Distance > 66 and Distance < 69 then
+            Arc = 125
+        elseif Distance > 69 and Distance < 74 then
+            Arc = 120
+        elseif Distance > 74 and Distance < 79 then
+            Arc = 115
+        elseif Distance > 79 and Distance < 82 then
+            Arc = 110
+        elseif Distance > 82 and Distance < 84 then
+            Arc = 105
+        elseif Distance > 84 and Distance < 88 then
+            Arc = 100
+        elseif Distance > 88 and Distance < 90 then
+            Arc = 85
+        elseif Distance > 90 and Distance < 93 then
+            Arc = 65
+        end
+    end
+    
+    if Playground == true and Arc ~= nil then
+        Arc = Arc - 5
+    end
+    
+    return Arc
+end
+
+getgenv().Shoot = function()
+    local Goal = GetGoal()
+    local Arc = GetArc()
+    local MoveDirection = GetMoveDirection()
+    local Hit = (Goal.Position + Vector3.new(0, Arc, 0) + MoveDirection)
+    local Direction = GetDirection(Hit)
+    local RandomizedArgs = GetRandomizedTable(Player.Character.Torso.Position, Direction)
+    local Basketball = GetBasketball()
+    local Key = GetKeyFromKeyTable()
+    
+    if Playground == true then
+        local Clock = GetClock()
+        
+        Key = Key .. Clock
+    end
+    
+    Clicker:FireServer(Basketball, Basketball.PowerValue.Value, RandomizedArgs, Key)
+    
+    if GetBasketball() ~= nil then
+        RemoveKeyFromKeyTable()
+    end
+end
+
+_G.InputBegan = UIS.InputBegan:Connect(function(Key, GPE)
+    if not GPE and Key.KeyCode == Enum.KeyCode.Space and Player.Character and Player.Character:FindFirstChild("Basketball") and IsInFooting then
+        if Player.Character.Humanoid:GetState() ~= Enum.HumanoidStateType.Freefall then
+            Player.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+            task.wait(0.25)
+        end
+        
+        Shoot()
+    end
+end)
+
+_G.Stepped = RS.Stepped:Connect(function()
+    InFootingCheck()
+    
+    if IsInFooting then
+        HL.Enabled = true
+    else
+        HL.Enabled = false
+    end
+    
+    if HL.Adornee.Parent == nil and Player.Character then
+        HL.Adornee = Player.Character
+    end
+end)
+    print("Clicked")
+end)
+
+Section:NewButton("Bounce Silent", "", function()
+local S, E = pcall(function()
+    _G.Stepped:Disconnect()
+    _G.InputBegan:Disconnect()
+end)
+
+if S then
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Silent Aim",
+        Text = "Silent Aim was reset, Mode: BounceBot",
+        Duration = 3
+    })
+
+    _G.Stepped = nil
+    _G.InputBegan = nil
+end
+
+if game.PlaceId == 4923146720 then
+    return game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "Error",
+        Text = "BounceBot can't be used in Playground",
+        Duration = 5,
+        Button1 = "Ok"
+    })
+end
+
+local Player = game.Players.LocalPlayer
+local UIS = game:GetService("UserInputService")
+local RS = game:GetService("RunService")
+
+local IsInFooting = false
+
+local HL = Instance.new("Highlight")
+HL.Enabled = false
+HL.Adornee = Player.Character
+HL.FillColor = Color3.fromRGB(25, 255, 25)
+HL.OutlineColor = Color3.fromRGB(0, 255, 0)
+HL.Parent = game.CoreGui
+
+local XYZ = {"X1", "Y1", "Z1", "X2", "Y2", "Z2"}
+local Selected; for _, Garbage in next, getgc(true) do
+    if type(Garbage) == "function" and getinfo(Garbage)["name"] == "selected1" then
+        Selected = Garbage
+    end
+end
+local Goals = {}; for _, Obj in next, workspace:GetDescendants() do
+    if Obj.Name == "Goal" and Obj:isA("BasePart") then
+        table.insert(Goals, Obj)
+    end
+end
+local Shuffled = {}; for _, Garbage in next, getgc(true) do
+    if type(Garbage) == "table" and rawget(Garbage, "1") and rawget(Garbage, "1") ~= true then
+        for z,x in next, Garbage do
+            Shuffled = Garbage
+        end
+    end
+end
+
+local Clicker = getupvalue(Selected, 3)
+
+local GetKeyFromKeyTable = function()
+    local Keys = getupvalue(Selected, 4)
+    return Keys[1]
+end
+
+local RemoveKeyFromKeyTable = function()
+    local Keys = getupvalue(Selected, 4)
+    table.remove(Keys, 1)
+    setupvalue(Selected, 4, Keys)
+end
+
+local GetRandomizedTable = function(TorsoPosition, ShootPosition)
+    local UnrandomizedArgs = {
+        X1 = TorsoPosition.X,
+        Y1 = TorsoPosition.Y,
+        Z1 = TorsoPosition.Z,
+        X2 = ShootPosition.X,
+        Y2 = ShootPosition.Y,
+        Z2 = ShootPosition.Z
+    }
+    
+    local RandomizedArgs = {
+        UnrandomizedArgs[Shuffled["1"]],
+        UnrandomizedArgs[Shuffled["2"]],
+        UnrandomizedArgs[Shuffled["3"]],
+        UnrandomizedArgs[Shuffled["4"]],
+        UnrandomizedArgs[Shuffled["5"]],
+        UnrandomizedArgs[Shuffled["6"]],
+    }
+    
+    return RandomizedArgs
+end
+
+local GetCorrectPosition = function(Position)
+    return Position - Player.Character.Torso.Position
+end
+
+local GetUnitPosition = function(Position)
+    return Position.Unit
+end
+
+local GetGoal = function()
+    local Distance, Goal = 9e9;
+    
+    for _, Obj in next, Goals do
+        local Magnitude = (Player.Character.Torso.Position - Obj.Position).Magnitude
+        
+        if Distance > Magnitude then
+            Distance = Magnitude
+            Goal = Obj
+        end
+    end
+    
+    return Goal
+end
+
+local GetDistance = function()
+    local Goal = GetGoal()
+    
+    return (Player.Character.Torso.Position - Goal.Position).Magnitude
+end
+
+local GetBasketball = function()
+     return Player.Character:FindFirstChildOfClass("Folder") 
+end
+
+local InFootingCheck = function()
+    local Distance = GetDistance()
+    local Basketball = GetBasketball()
+    
+    local Power; if Basketball ~= nil then
+        Power = Basketball.PowerValue.Value
+    else
+        IsInFooting = false
+        return
+    end
+    
+    if Distance > 57 and Distance < 93 then
+        IsInFooting = true
+    else
+        IsInFooting = false
+    end
+end
+
+local GetArc = function()
+    local Distance = GetDistance()
+    local Basketball = GetBasketball()
+    
+    if Distance > 57 and Distance < 63 then
+        return 185
+    elseif Distance > 63 and Distance < 69 then
+        return 180
+    elseif Distance > 69 and Distance < 74 then
+        return 175
+    elseif Distance > 74 and Distance < 79 then
+        return 175
+    elseif Distance > 79 and Distance < 82 then
+        return 170
+    elseif Distance > 82 and Distance < 91 then
+        return 165
+    elseif Distance > 91 and Distance < 93 then
+        return 160
+    end
+end
+
+local Shoot = function()
+    local Goal = GetGoal()
+    local Arc = GetArc()
+    local CorrectPosition = GetCorrectPosition(Goal.Position + Vector3.new(0, Arc, 0) + Player.Character.Humanoid.MoveDirection)
+    local Position = GetUnitPosition(CorrectPosition)
+    local RandomizedArgs = GetRandomizedTable(Player.Character.Torso.Position, Position)
+    local Basketball = GetBasketball()
+    
+    local Key = GetKeyFromKeyTable()
+    
+    if type(Key) ~= "string" then
+        Key = "Shotta"
+    end
+    
+    Clicker:FireServer(Basketball, 100, RandomizedArgs, Key)
+    
+    if Key ~= "Shotta" then
+        RemoveKeyFromKeyTable()
+    end
+end
+            
+_G.InputBegan = UIS.InputBegan:Connect(function(Key, GPE)
+    if not GPE and Key.KeyCode == Enum.KeyCode.Space and Player.Character and Player.Character:FindFirstChild("Basketball") and IsInFooting then
+        if Player.Character.Humanoid:GetState() ~= Enum.HumanoidStateType.Freefall then
+            Player.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+            task.wait(0.27)
+        end
+        
+        Shoot()
+    end
+end)
+
+_G.Stepped = RS.Stepped:Connect(function()
+    InFootingCheck()
+    
+    if IsInFooting then
+        HL.Enabled = true
+    else
+        HL.Enabled = false
+    end
+    
+    if HL.Adornee.Parent == nil and Player.Character then
+        HL.Adornee = Player.Character
+    end
+end)
+    print("Clicked")
+end)
+
+Section:NewButton("NoJump Silent", "", function()
+local S, E = pcall(function()
+    _G.Stepped:Disconnect()
+    _G.InputBegan:Disconnect()
+end)
+
+if S then
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Silent Aim",
+        Text = "Silent Aim was reset, Mode: NoJumpBot",
+        Duration = 3
+    })
+
+    _G.Stepped = nil
+    _G.InputBegan = nil
+end
+
+local Player = game.Players.LocalPlayer
+local UIS = game:GetService("UserInputService")
+local RS = game:GetService("RunService")
+
+local Playground = (game.PlaceId == 4923146720)
+local IsInFooting = false
+
+local HL = Instance.new("Highlight")
+HL.Enabled = false
+HL.Adornee = Player.Character
+HL.FillColor = Color3.fromRGB(25, 255, 25)
+HL.OutlineColor = Color3.fromRGB(0, 255, 0)
+HL.Parent = game:GetService("CoreGui")
+
+local Goals = {} do
+    for _, Obj in next, game:GetDescendants() do
+        if Obj.Name == "Goal" and Obj:IsA("BasePart") then
+            table.insert(Goals, Obj)
+        elseif Obj.Name == "Part" and Obj:IsA("BasePart") and Obj.Size == Vector3.new(5, 1, 5) then
+            table.insert(Goals, Obj)
+        end
+    end
+end
+
+local Shuffled, Selected do
+    for _, Garbage in next, getgc(true) do
+        if type(Garbage) == "function" and getinfo(Garbage)["name"] == "selected1" then
+            Selected = Garbage
+        elseif type(Garbage) == "table" and rawget(Garbage, "1") and rawget(Garbage, "1") ~= true then
+            Shuffled = Garbage
+        end
+    end
+end
+
+local Clicker do
+    if Playground == false then
+        Clicker = getupvalue(Selected, 3)
+    else
+        Clicker = getupvalue(Selected, 5)
+    end
+end
+
+local GetClock = function()
+    local OldClock = getupvalue(Selected, 3)
+    local NewClock = OldClock + 1
+    
+    setupvalue(Selected, 3, NewClock)
+    
+    return NewClock
+end
+
+local GetKeyFromKeyTable = function()
+    local Keys = getupvalue(Selected, 4)
+    
+    if Playground == true then
+        return "Shotta_"
+    elseif type(Keys[1]) == "string" then
+        return Keys[1]
+    end
+    
+    return "Shotta"
+end
+
+local RemoveKeyFromKeyTable = function()
+    local Keys = getupvalue(Selected, 4)
+    
+    if type(Keys) == "table" then
+        table.remove(Keys, 1)
+        setupvalue(Selected, 4, Keys)
+    end
+end
+
+local GetRandomizedTable = function(TorsoPosition, ShootPosition)
+    local UnrandomizedArgs = {
+        X1 = TorsoPosition.X,
+        Y1 = TorsoPosition.Y,
+        Z1 = TorsoPosition.Z,
+        X2 = ShootPosition.X,
+        Y2 = ShootPosition.Y,
+        Z2 = ShootPosition.Z
+    }
+    
+    local RandomizedArgs = {
+        UnrandomizedArgs[Shuffled["1"]],
+        UnrandomizedArgs[Shuffled["2"]],
+        UnrandomizedArgs[Shuffled["3"]],
+        UnrandomizedArgs[Shuffled["4"]],
+        UnrandomizedArgs[Shuffled["5"]],
+        UnrandomizedArgs[Shuffled["6"]],
+    }
+    
+    return RandomizedArgs
+end
+
+local GetGoal = function()
+    local Distance, Goal = 9e9
+    
+    for _, Obj in next, Goals do
+        local Magnitude = (Player.Character.Torso.Position - Obj.Position).Magnitude
+        
+        if Distance > Magnitude then
+            Distance = Magnitude
+            Goal = Obj
+        end
+    end
+    
+    return Goal
+end
+
+local GetDistance = function()
+    local Goal = GetGoal()
+    
+    return (Player.Character.Torso.Position - Goal.Position).Magnitude
+end
+
+local GetDirection = function(Position)
+    return (Position - Player.Character.Torso.Position).Unit
+end
+
+local GetBasketball = function()
+    return Player.Character:FindFirstChildOfClass("Folder")
+end
+
+local InFootingCheck = function()
+    local Distance = GetDistance()
+    local Basketball = GetBasketball()
+    
+    local Power do 
+        if Basketball ~= nil then
+            Power = Basketball.PowerValue.Value
+        else
+            IsInFooting = false
+            return
+        end
+    end
+    
+    if Player.Character ~= nil then
+        if Player.Character.Humanoid:GetState() ~= Enum.HumanoidStateType.Running then
+            IsInFooting = false
+            return
+        end
+    else
+        IsInFooting = false
+        return
+    end
+    
+    if Power == 80 then
+        if Distance > 57 and Distance < 64 then
+            IsInFooting = true
+        else
+            IsInFooting = false
+            end
+    elseif Power == 85 then
+        if Distance > 57 and Distance < 70 then
+            IsInFooting = true
+        else
+            IsInFooting = false
+            end
+    elseif Power == 90 then
+        if Distance > 57 and Distance < 74 then
+            IsInFooting = true
+        else
+            IsInFooting = false
+        end
+    elseif Power == 95 then
+        if Distance > 57 and Distance < 82 then
+            IsInFooting = true
+        else
+            IsInFooting = false
+        end
+    elseif Power == 100 then
+        if Distance > 57 and Distance < 87 then
+            IsInFooting = true
+        else
+            IsInFooting = false
+        end
+    elseif Power < 80 then
+        IsInFooting = false
+    end
+end
+
+local GetArc = function()
+    local Distance = GetDistance()
+    local Basketball = GetBasketball()
+    
+    local Arc = nil
+    
+    local Power do
+        if Basketball ~= nil then
+            Power = Basketball.PowerValue.Value
+        else
+            return
+        end
+    end
+    
+    if Power == 80 then
+        if Distance > 57 and Distance < 59 then
+            Arc = 60
+        elseif Distance > 59 and Distance < 62 then
+            Arc = 55
+        elseif Distance > 62 and Distance < 64 then
+            Arc = 40
+        end
+    elseif Power == 85 then
+        if Distance > 57 and Distance < 59 then
+            Arc = 75
+        elseif Distance > 59 and Distance < 63 then
+            Arc = 70
+        elseif Distance > 63 and Distance < 66 then
+            Arc = 65
+        elseif Distance > 66 and Distance < 69 then
+            Arc = 55
+        elseif Distance > 69 and Distance < 70 then
+            Arc = 45
+        end
+    elseif Power == 90 then
+        if Distance > 57 and Distance < 63 then
+            Arc = 90
+        elseif Distance > 63 and Distance < 66 then
+            Arc = 85
+        elseif Distance > 66 and Distance < 69 then
+            Arc = 80
+        elseif Distance > 69 and Distance < 73 then
+            Arc = 70
+        elseif Distance > 73 and Distance < 74 then
+            Arc = 65
+        end
+    elseif Power == 95 then
+        if Distance > 57 and Distance < 59 then
+            Arc = 110
+        elseif Distance > 59 and Distance < 63 then
+            Arc = 105
+        elseif Distance > 63 and Distance < 66 then
+            Arc = 100
+        elseif Distance > 66 and Distance < 70 then
+            Arc = 95
+        elseif Distance > 70 and Distance < 73 then
+            Arc = 90
+        elseif Distance > 73 and Distance < 76 then
+            Arc = 85
+        elseif Distance > 76 and Distance < 78 then
+            Arc = 80
+        elseif Distance > 78 and Distance < 81 then
+            Arc = 65
+        elseif Distance > 81 and Distance < 82 then
+            Arc = 60
+        end
+    elseif Power == 100 then
+        if Distance > 57 and Distance < 66 then
+            Arc = 120
+        elseif Distance > 66 and Distance < 69 then
+            Arc = 115
+        elseif Distance > 69 and Distance < 73 then
+            Arc = 110
+        elseif Distance > 73 and Distance < 77 then
+            Arc = 105
+        elseif Distance > 77 and Distance < 80 then
+            Arc = 100
+        elseif Distance > 80 and Distance < 82 then
+            Arc = 95
+        elseif Distance > 82 and Distance < 84 then
+            Arc = 90
+        elseif Distance > 84 and Distance < 85 then
+            Arc = 85
+        elseif Distance > 85 and Distance < 87 then
+            Arc = 75
+        end
+    end
+    
+    print(Arc)
+    
+    if Playground == true and Arc ~= nil then
+        Arc = Arc - 3
+    end
+    
+    return Arc
+end
+
+local Shoot = function()
+    local Goal = GetGoal()
+    local Arc = GetArc()
+    local Hit = (Goal.Position + Vector3.new(0, Arc, 0) + Player.Character.Humanoid.MoveDirection)
+    local Direction = GetDirection(Hit)
+    local RandomizedArgs = GetRandomizedTable(Player.Character.Torso.Position, Direction)
+    local Basketball = GetBasketball()
+    local Key = GetKeyFromKeyTable()
+    
+    if Playground == true then
+        local Clock = GetClock()
+        
+        Key = Key .. Clock
+    end
+    
+    Clicker:FireServer(Basketball, Basketball.PowerValue.Value, RandomizedArgs, Key)
+    
+    RemoveKeyFromKeyTable()
+end
+
+_G.InputBegan = UIS.InputBegan:Connect(function(Key, GPE)
+    if not GPE and Key.KeyCode == Enum.KeyCode.X and Player.Character and Player.Character:FindFirstChild("Basketball") and IsInFooting then
+        Shoot()
+    end
+end)
+
+_G.Stepped = RS.Stepped:Connect(function()
+    InFootingCheck()
+    
+    if IsInFooting then
+        HL.Enabled = true
+    else
+        HL.Enabled = false
+    end
+    
+    if HL.Adornee.Parent == nil and Player.Character then
+        HL.Adornee = Player.Character
+    end
+end)
+    print("Clicked")
+end)
+
+local Tab = Window:NewTab("Keybind")
+local Section = Tab:NewSection("Keybind")
+Section:NewButton("", "", function()
+Section:NewKeybind("", "", Enum.KeyCode.F, function()
+	Library:ToggleUI()
+end)
+    print("Clicked")
+end)
+
+local Tab = Window:NewTab("hoop sessions")
+local Section = Tab:NewSection("hoop sessions")
+Section:NewButton("aimbot", "", function()
+loadstring(game:HttpGet("https://scriptblox.com/raw/Hoop-Sessiontm-Session-Silent-Aim-REMADE-7396"))()
+    print("Clicked")
+end)
+
+local Tab = Window:NewTab("Hoop paradise")
+Section= Tab:NewSection("Hoop paradise")
+Section:NewButton("aimbot", "", function()
+loadstring(game:HttpGet("https://scriptblox.com/raw/WINTER-+-RESET-Hoop-Paradise-tm-s-script-9162"))()
+    print("Clicked")
+end)
+
+local Tab = Window:NewTab("custom duels")
+local Section = Tab:NewSection("Custom duels")
+Section:NewButton("Reach Gui", "", function()
+loadstring(game:HttpGet("https://scriptblox.com/raw/EVENT-Custom-Duels:-Classic-Custom-Duels-Script-8191"))()
+    print("Clicked")
+end)
+
+local Tab = Window:NewTab("Sword simulator")
+local Section = Tab:NewSection("Sword simulator")
+Section:NewButton("Sword Simulator", ".", function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Arisezi/Roblox/main/SwordSimulator"))()
+    print("Clicked")
+end)
+
+local Tab = Window:NewTab("Admin")
+local Section = Tab:NewSection("Nameless admin")
+Section:NewButton("click for admin", ".", function()
+loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-Nameless-admin-11011"))()
+    print("Clicked")
+end)
+
+local Tab = Window:NewTab("Gun Simulator")
+local Section = Tab:NewSection("Gun Simulator")
+Section:NewButton("Gun simulator", ".", function()
+--[[
+    Aimworks 3.1 (Edit for Gun Simulator)
+   I feel sorry for who ever made this game
+ Just another trash simulator down the drain
+--]]
+
+local accuracy = 80
+local aimkey = "f"
+local toggle_teamcheck = "h"
+local headshot = 35
+local ignoreFOV    =  true
+local ignoreWalls  =  true
+local perfect_aim  =  true
+local perfect_aim_firstperson_distance = 28
+local rage_triggers = false
+local RenderLassos =  true
+local ShootingTeam =  false
+local SpreadControlRadius = Vector3.new(25, 25, 15)
+local trigger_speed = 0.1
+local triggers  =  false
+local Chams = false
+
+local Whitelist = {"ROBLOX"}
+for i,v in pairs(game.Players:GetChildren()) do
+  if game.Players.LocalPlayer:IsFriendsWith(v.userId) then
+      table.insert(Whitelist, v.Name)
+  end
+end
+
+game.Players.PlayerAdded:connect(function(player)
+  if game.Players.LocalPlayer:IsFriendsWith(player.userId) then
+      table.insert(Whitelist, player.Name)
+  end
+end)
+
+local aim_through_list = {nil, nil, nil}
+local bone_name
+local camera = workspace.CurrentCamera
+local closest_distance
+local deathBlock
+local distance
+local FilteringEnabled = workspace.FilteringEnabled
+local huge = math.huge
+local in_fov
+local lasso
+local localplayer = game:GetService("Players").LocalPlayer
+local most_viable_player
+local mouse = localplayer:GetMouse()
+local CreatorId = game.CreatorId
+local players_service = game:GetService("Players")
+local position
+local random = math.random
+local ray = Ray.new
+local ray_start
+local running = true
+local sleeping
+local target
+local tele_bone
+local targ_bone
+local ticksslept = 0
+local trigger_debounce
+local vector
+local viableplayers = {}
+
+local function FindInstance(instance_className, search_directory)
+
+  if not search_directory then return end
+
+  for i, v in pairs(search_directory:GetChildren()) do
+      if v.className == instance_className then
+          return(v)
+      end
+  end
+
+end
+
+local function CreateBlockOfDeath()
+
+  if deathBlock then deathBlock:Destroy() end
+
+  deathBlock = Instance.new("Part", workspace)
+  deathBlock.CanCollide = false
+  deathBlock.Size = SpreadControlRadius
+  deathBlock.Locked = true
+  mouse.TargetFilter = deathBlock
+  return deathBlock
+
+end
+
+local function ReturnsScreenCoordinatesAsVectorAndFOVChecksAsBool(player, bone)
+
+  if not bone then
+      return {_, false}
+  end
+
+  return camera:WorldToScreenPoint(player.Character[bone].Position)
+
+end
+
+local function ReturnsPlayerCheckResults(player)
+
+  if not ShootingTeam then
+      if player.TeamColor == localplayer.TeamColor then
+          if not (player.Neutral and localplayer.Neutral) then
+              return false
+          end
+      end
+  end
+ 
+  for i,v in pairs(Whitelist) do
+      if player.Name == v then
+          return false
+      end
+  end
+ 
+  if player == localplayer then
+      return false
+  end
+
+  if FindInstance("ForceField", player.Character) or FindInstance("Humanoid", player.Character, true).MaxHealth == huge then
+      return false
+  end
+
+  if FindInstance("Humanoid", player.Character, true).Health == 0 then
+      return false
+  end
+
+  local screen_position, in_fov = ReturnsScreenCoordinatesAsVectorAndFOVChecksAsBool(player, "UpperTorso")
+  if not (in_fov or ignoreFOV) then
+      return false
+  else
+      return player, screen_position
+  end
+
+end
+
+local function ReturnsBoneOrFalse(player)
+
+  if perfect_aim then
+      return (FilteringEnabled and "Head" or "Left Arm")
+  end
+
+  if not (random(1, 100) <= accuracy) then
+      return false
+  end
+
+  if (random(1, 100) <= headshot) and FilteringEnabled then
+      return "Head"
+  end
+
+  return "Left Arm"
+
+end
 
 
+local function ReturnsViablePlayerOrNil()
+  aim_through_list[1], aim_through_list[2] = deathBlock, localplayer.Character
+  local distance = 1000
+  local closest_distance = 1000
+  local most_viable_player = nil
 
-    --Settings
-    local Settings = Window:NewTab("Settings")
-    local SettingsSection = Settings:NewSection("Settings")
+  local your_character = localplayer.Character
+  local your_head = your_character and your_character:FindFirstChild "Head"
 
-    SettingsSection:NewButton("Reset", "Resets your Characters", function()
-        game.Players.LocalPlayer.Character.Humanoid.Health = 0
-    end)
+  for i, player_being_checked in pairs(players_service:GetPlayers()) do
 
-    SettingsSection:NewButton("Rejoins", "Rejoins your game", function()
-        local TeleportService = game:GetService("TeleportService")
-        local placeID = 623694595
-        local player = Game.Players.LocalPlayer
-         
-        TeleportService:Teleport(placeID, player)
-    end)
+      local player_or_false, targets_coordinates = ReturnsPlayerCheckResults(player_being_checked)
 
-    SettingsSection:NewKeybind("Toggle", "Toggles the Gui", Enum.KeyCode.F, function()
-        Library:ToggleUI()
-    end)
+      if player_or_false then
+
+          local char = player_being_checked.Character
+          local target_UpperTorso = char and char:FindFirstChild "UpperTorso"
+
+          if target_UpperTorso then
+
+              if (camera.Focus.p - camera.CoordinateFrame.p).magnitude <= 1 then
+                  ray_start = your_head.Position + your_head.CFrame.lookVector * 10 + Vector3.new(0, 3, 0)
+              else
+                  ray_start = your_head.Position + Vector3.new(0, 2, 0)
+              end
+
+
+              if not targets_coordinates then
+                  distance = (Vector2.new(targets_coordinates.X, targets_coordinates.Y) - Vector2.new(mouse.X, mouse.Y)).magnitude
+              else
+                  distance = (Vector2.new(targets_coordinates.X, targets_coordinates.Y) - Vector2.new(mouse.X, mouse.Y)).magnitude
+              end
+              vector = (target_UpperTorso.Position - ray_start)
+
+
+              if (not targets_coordinates) or (distance <= closest_distance) then
+
+                  local new_ray = ray(ray_start, vector.unit * 1000)
+                  local hit, position = workspace:FindPartOnRayWithIgnoreList(new_ray, aim_through_list)
+
+                  if (hit and hit:isDescendantOf(char)) or ignoreWalls then
+                      closest_distance = distance
+                      most_viable_player = player_being_checked
+                  end
+
+              end
+
+          end
+
+      end
+  end
+
+  blockName = ReturnsBoneOrFalse(most_viable_player)
+  sleeping = true
+  return most_viable_player
+
+end
+
+
+function CreateChams()
+if Chams then
+  for i,v in pairs(camera:GetChildren()) do
+      v:Destroy()
+  end
+       for q,player in pairs(game.Players:GetPlayers()) do
+          if player.Character.Head:FindFirstChild("face") then
+              player.Character.Head.face:Destroy()
+          end
+          if player.Character.Head:FindFirstChild("BoxHandleAdornment") then
+             local ESP = false
+         else
+              if player.Name ~= localplayer.Name then
+              for i,v in pairs(player.Character:GetChildren()) do
+                  if v:IsA("BasePart") then
+                      if v.Name ~= "Head" then
+                      local fakeChams = Instance.new("BoxHandleAdornment", v)
+                      local esp = Instance.new("BoxHandleAdornment", camera)
+                      for c,w in pairs(Whitelist) do
+                          if player.Name == w then
+                          esp.Color3 = Color3.new(0,0,255)
+                          esp.Adornee = v
+                          esp.AlwaysOnTop = true
+                      else
+                          if player.TeamColor == localplayer.TeamColor then
+                           esp.Color3 = Color3.new(0,255,0)
+                           esp.Adornee = v
+                           esp.AlwaysOnTop = true
+                       else
+                           if player.TeamColor ~= localplayer.TeamColor then
+                                  esp.Color3 = Color3.new(255,0,0)
+                                  esp.Adornee = v
+                                  esp.AlwaysOnTop = true
+                                          end
+                                      end
+                                  end
+                              end  
+                          end
+                      end  
+                  end
+              end
+          end
+      end
+  end
+end
+
+CreateChams()
+
+game.Workspace.ChildAdded:connect(function(child)
+  if child:IsA("Model") or child:IsA("Folder") then
+      CreateChams()
+  end
+end)
+
+game.Workspace.ChildRemoved:connect(function(child)
+  if child:IsA("Model") or child:IsA("Folder") then
+      CreateChams()
+  end
+end)
+
+game.Players.LocalPlayer.Changed:connect(function()
+  CreateChams()
+end)
+
+local function TargetPlayer(player)
+ 
+  if aim_through_list[3] then
+      aim_through_list[3].Position = aim_through_list[3].Position + Vector3.new(0,200,0)
+      table.remove(aim_through_list, 3)
+  end
+
+  if not player then 
+      if lasso then lasso:Destroy() lasso = nil end
+      target = nil
+      lasso = Instance.new("SelectionPointLasso", camera)
+      lasso.Humanoid, lasso.Point = FindInstance("Humanoid", localplayer.Character, true), mouse.Hit.p
+      lasso.Color3 = Color3.new(0,255,0)
+      return
+  end
+
+  if RenderLassos then
+      if lasso then lasso:Destroy() lasso = nil end
+      lasso = Instance.new("SelectionPartLasso", camera)
+      lasso.Humanoid, lasso.Part = FindInstance("Humanoid", player.Character, true), game.Players.LocalPlayer.Character.UpperTorso
+      lasso.Color3 = Color3.new(0,255,0)
+  end
+
+  bone_name = ReturnsBoneOrFalse(player)
+
+  if player.Character.Head and bone_name then
+      tele_bone = player.Character[bone_name]
+      tele_bone.Parent = player.Character
+      tele_bone.Size = SpreadControlRadius
+      tele_bone.CanCollide = false
+      tele_bone.CFrame = CFrame.new(workspace.CurrentCamera.CoordinateFrame.p + workspace.CurrentCamera.CoordinateFrame.lookVector * perfect_aim_firstperson_distance, workspace.CurrentCamera.CoordinateFrame.p)
+      tele_bone.Transparency=1
+      tele_bone:ClearAllChildren()
+      table.insert(aim_through_list, 3, tele_bone)
+      target = player
+      return player
+
+  end
+
+  if bone_name then
+      deathBlock.Parent = player.Character
+      deathBlock.CanCollide = false
+      deathBlock.Name = bone_name
+  else
+      return
+  end
+
+  target = player
+  return player
+
+end
+
+
+CreateBlockOfDeath()
+workspace.DescendantRemoving:connect(function(instance)
+  if instance == deathBlock then CreateBlockOfDeath() end
+end)
+
+local function shoot()
+
+  if not mouse1press then return end
+
+  if trigger_debounce then return end
+
+  trigger_debounce = true
+
+  if rage_triggers and mouse1press() then
+
+      mouse1press()
+      wait(0.1)
+      mouse1release()
+
+  elseif mouse1press then
+
+      mouse1press()
+      wait(0)
+      mouse1release()
+      wait(trigger_speed)
+
+  end
+
+  trigger_debounce = false
+
+end
+
+game:GetService("RunService"):BindToRenderStep("First", Enum.RenderPriority.First.Value, function() -- another clusterfuck
+
+  if running then
+      if localplayer.Character then
+          TargetPlayer(ReturnsViablePlayerOrNil())
+          if target and target.Character then
+              if localplayer:GetMouse().Target == deathBlock then return end
+              if triggers then shoot() end
+          else
+              deathBlock.Parent = workspace
+          end
+      end
+  end
+
+end)
+
+local keydown = mouse.KeyDown:connect(function(keys)
+  if (keys == aimkey) then
+      running = not running
+      if (running) then
+          print("[SILENTAIM] activated.")
+      else
+          print("[SILENTAIM] deactivated.")
+      end
+  end
+end)
+
+local keydowns = mouse.KeyDown:connect(function(keys)
+  if (keys == toggle_teamcheck) then
+      if (ShootingTeam) then
+          print("[SILENTAIM] Team Shooting deactivated")
+          ShootingTeam = false
+      else
+          print("[SILENTAIM] Team Shooting activated")
+          ShootingTeam = true
+      end
+  end
+end)
+    print("Clicked")
+end)
+
+local Tab = Window:NewTab("Knife simulator")
+local Section = Tab:NewSection("Knife simulator")
+Section:NewButton("Knife simulator", ".", function()
+loadstring(game:HttpGet(('https://pastebin.com/raw/TwzfbFfc'),true))() 
+    print("Clicked")
+end)
+
+local Tab = Window:NewTab("Kat")
+local Section = Tab:NewSection("Kat")
+Section:NewButton("Kat", ".", function()
+    print("Clicked")
+end)
