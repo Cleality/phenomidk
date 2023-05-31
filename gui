@@ -6,6 +6,13 @@ game.StarterGui:SetCore("SendNotification", {
 --cleality on YOUTUBE (PHENOM AIMBOTS IS MAGNETS)
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local Window = Library.CreateLib("By Scripts!", "DarkTheme")
+
+Disxlocal Tab = Window:NewTab("My ")
+local Section = Tab:NewSection("Kat")
+Section:NewButton("Kat", ".", function()
+    print("Clicked")
+end)
+
 local Tab = Window:NewTab("phenom ")
 local Section = Tab:NewSection("Aimbot")
 Section:NewButton("TBot Silent Aim", ".", function()
