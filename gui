@@ -1,11 +1,11 @@
 game.StarterGui:SetCore("SendNotification", {
 	Title = "Phenom";
-	Text = "Script Successfully Loaded";
+	Text = "Obfuscated";
 	Duration = 5;
 })
 --cleality on YOUTUBE (PHENOM AIMBOTS IS MAGNETS)
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Moonexploits", "DarkTheme")
+local Window = Library.CreateLib("By Scripts!", "DarkTheme")
 local Tab = Window:NewTab("phenom ")
 local Section = Tab:NewSection("Aimbot")
 Section:NewButton("TBot Silent Aim", ".", function()
@@ -28,7 +28,7 @@ end
 if game.PlaceId == 4923146720 then
     return game:GetService("StarterGui"):SetCore("SendNotification", {
         Title = "Error",
-        Text = "TBot can't be used in Playground",
+        Text = "T Silent Is Unavailable In Playground",
         Duration = 5,
         Button1 = "Ok"
     })
@@ -230,8 +230,8 @@ local Shoot = function()
 end
             
 _G.InputBegan = UIS.InputBegan:Connect(function(Key, GPE)
-    if not GPE and Key.KeyCode == Enum.KeyCode.Jumping and Player.Character and Player.Character:FindFirstChild("Basketball") and IsInFooting then
-        if Player.Character.Humanoid:GetState() ~= Enum.HumanoidStateType.Jumping then
+    if not GPE and Key.KeyCode == Enum.KeyCode.X and Player.Character and Player.Character:FindFirstChild("Basketball") and IsInFooting then
+        if Player.Character.Humanoid:GetState() ~= Enum.HumanoidStateType.FreeFall then
             local Humanoid =  Player.Character.Humanoid
             Humanoid.JumpPower = 67
             Humanoid:LoadAnimation(Player.Character.Basketball.Dunk1):Play()
